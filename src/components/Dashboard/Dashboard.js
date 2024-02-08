@@ -15,8 +15,8 @@ const Dashboard = ({
   setIncomeTransactions,
   expensesTransactions,
   setExpensesTransactions,
-  addExpense,
-  addIncome
+  useCreateExpense,
+  useCreateIncome
 }) => {
 
   
@@ -41,6 +41,8 @@ const Dashboard = ({
             totalAmount={totalExpenses}
             setTotalExpenses={setTotalExpenses}
             addExpense={addExpense}
+            useCreateExpense={useCreateExpense}
+            useCreateIncome={useCreateIncome}
           />
         </div>
         <TransactionsTable

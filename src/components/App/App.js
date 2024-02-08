@@ -19,15 +19,7 @@ const App = () => {
   const [cashFlow, setCashFlow] = useState(null);
 
   {/* Hardcoded user, will pull from getUser endpoint soon */}
-  const userName = "Powdered Toast Man";
-  const email = "moneybaggins@bigbanktakelilbank.doge"
-  const userId = 1
-  const vendor = "Live Nation"
-  const category = "Concert Tickets"
-  const amount = "$100.00"
-  const status = "debited"
-  const date = "2023-Dec-31"
-  const source = "WFCS"
+
 
 
 
@@ -36,8 +28,6 @@ const App = () => {
   const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
   const { loading: loadingTransactions, error: errorTransactions, transactionsData } = useGetTransactions(email);
   const { loading: loadingCashFlow, error: errorCashFlow, cashFlowData } = useGetCashFlow(email);
-  const  { loading: loadingNewExpense , error: errorNewExpense, newExpenseData } = useCreateExpense(userId, vendor, category, amount, status, date);
-  const  { loading: loadingNewincome , error: errorNewIncome, newIncomeData } = useCreateIncome(userId, source, amount, date);
 
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
@@ -53,17 +43,7 @@ const App = () => {
     setExpensesTransactions(expenseTransactions);
   }, [transactions]);
 
-  function addExpense (newExpenseData) {
-   setExpensesTransactions([...expensesTransactions, newExpenseData])
-   const newTotalExpenses = totalExpenses + newExpenseData.amount;
-   setTotalExpenses(parseInt(newTotalExpenses));
-  }
 
-  function addIncome (newIncomeData) {
-    setIncomeTransactions([...incomeTransactions, newIncomeData]);
-    const newTotalIncome = totalIncome + newIncomeData.amount;
-    setTotalIncome(parseInt(newTotalIncome));
-  }
 
   return (
     <main className='app'>
@@ -79,8 +59,8 @@ const App = () => {
         setIncomeTransactions={setIncomeTransactions}
         expensesTransactions={expensesTransactions}
         setExpensesTransactions={setExpensesTransactions}
-        addExpense={addExpense}
-        addIncome={addIncome}
+        useCreateExpense={useCreateExpense}
+        useCreateIncome={useCreateIncome}
       />
     </main>
   )

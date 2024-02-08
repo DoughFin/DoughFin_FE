@@ -25,13 +25,14 @@ const Total = ({
   setTotalIncome,
   setIncomeTransactions,
   setExpensesTransactions,
-  addIncome,
-  addExpense
+  useCreateExpense,
+  useCreateIncome
 }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+  const [category, setCategory] = useState("")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -39,13 +40,22 @@ const Total = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newTransaction = {
+    const newIncome = {
+      id: Date.now(),
+      source: name,
+      date: date,
+      amount: parseFloat(amount),
+      status: "debited",
+    };
+
+    const newExpense = {
       id: Date.now(),
       vendor: name,
       date: date,
+      category: category,
       amount: parseFloat(amount),
-      status: totalType === "Total Income:" ? "credited" : "debited",
-    };
+      status: "credited",
+    }
 
     const clearForm = () => {
       setName("");
@@ -58,13 +68,13 @@ const Total = ({
       setTotalIncome(
         (prevTotalIncome) => parseFloat(prevTotalIncome) + parseFloat(newTransaction.amount)
       );
-      addIncome(newTransaction);
+      useCreateIncome(newTransaction.id, newTransaction.vendor, newTransaction.amount, newTransaction.date)
     } else if (totalType === "Total Expenses:") {
       setExpensesTransactions((prev) => [...prev, newTransaction]);
       setTotalExpenses(
         (prevTotalExpenses) => parseFloat(prevTotalExpenses) + parseFloat(newTransaction.amount)
       );
-      addExpense(newTransaction);
+      useCreateExpense(newTransaction.id, newTransaction.vendor, newTransaction)
     }
     clearForm();
     handleClose();
