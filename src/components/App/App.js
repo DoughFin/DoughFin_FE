@@ -12,6 +12,7 @@ import { useGetTransactions } from '../apollo-client/queries/getTransactions';
 import { useCreateExpense } from '../apollo-client/mutations/createExpense';
 import { useCreateIncome } from '../apollo-client/mutations/createIncome';
 import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
+import { useGetBudgetsByParams } from '../apollo-client/queries/getBudgetByParams';
 
 
 const App = () => {
@@ -21,22 +22,26 @@ const App = () => {
   const [totalIncome, setTotalIncome] = useState(null);
   const [totalExpenses, setTotalExpenses] = useState(null);
   const [cashFlow, setCashFlow] = useState(null);
+  const [budget, setBudget] = useState(null);
 
   {/* Hardcoded user, will pull from getUser endpoint soon */}
   const userName = "Powdered Toast Man";
   const email = "moneybaggins@bigbanktakelilbank.doge"
+  const userId = "3"
   
   const { loading: loadingIncomes, error: errorIncomes, totalIncomeData } = useGetIncomes(email);
   const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
   const { loading: loadingTransactions, error: errorTransactions, transactionsData } = useGetTransactions(email);
   const { loading: loadingCashFlow, error: errorCashFlow, cashFlowData } = useGetCashFlow(email);
+  const { loading: loadingBudget, error: errorBudget, budgetData } = useGetBudgetsByParams(userId, "2024-02", "Nonprofit");
 
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
     if (transactionsData) setTransactions(transactionsData);
     if (cashFlowData) setCashFlow(cashFlowData);
-  }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData]);
+    if (budgetData) setBudget(budgetData);
+  }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData, budgetData]);
 
   useEffect(() => {
     const incomeTransactions = transactions.filter(t => t.status === 'credited');
@@ -59,6 +64,7 @@ const App = () => {
         setIncomeTransactions={setIncomeTransactions}
         expensesTransactions={expensesTransactions}
         setExpensesTransactions={setExpensesTransactions}
+        setBudgets={setBudget}
       />
     </main>
   )

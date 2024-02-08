@@ -5,7 +5,7 @@ import { GET_INCOMES } from "./queries/getIncomes";
 import { GET_TRANSACTIONS } from "./queries/getTransactions";
 import { GET_USER_CASH_FLOW } from "./queries/getUserCashFlow";
 import { CREATE_EXPENSE } from "./components/apollo-client/mutations/createExpense";
-import 
+import { GET_BUDGET_BY_PARAMS} from "./components/apollo-client/queries/getBudgetByParams";
 
 function GetUser({ email }) {
   const { loading, error, data } = useQuery(GET_USER, {
@@ -93,6 +93,8 @@ function GetUserCashFlow({ userId }) {
     </div>
   );
 }
+
+
 
 export default {
   GetUser,

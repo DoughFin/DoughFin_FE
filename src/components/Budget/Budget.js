@@ -6,11 +6,15 @@ import EllipsePurple from '../../assets/icons/Ellipse-purple.svg'
 import EllipseBlue from '../../assets/icons/Ellipse-blue.svg'
 import PlusIcon from '../../assets/icons/plus-icon.svg'
 
-const Budget = () => {
-  return (
+const Budget = ({
+    budgets
+}) => {
+
+
+    return (
     <aside className='budget'>
       <header className='budget-header'>
-        <h2>Budget</h2>
+        <h2>{budgets.budget.category}</h2>
         <img className='budget-dropdown-button' src={DropDownIcon} alt='dropdown icon' />
       </header>
       <summary className='budget-pie-chart'>
@@ -53,7 +57,7 @@ const Budget = () => {
         </div>
       </section>
     </aside>
-  )
+    )
 }
 
 export default Budget

@@ -6,15 +6,16 @@ import Budget from "../Budget/Budget";
 import CashFlow from "../CashFlow/CashFlow";
 
 const Dashboard = ({
-  cashFlow,
-  totalIncome,
-  setTotalIncome,
-  totalExpenses,
-  setTotalExpenses,
-  incomeTransactions,
-  setIncomeTransactions,
-  expensesTransactions,
-  setExpensesTransactions,
+    cashFlow,
+    totalIncome,
+    setTotalIncome,
+    totalExpenses,
+    setTotalExpenses,
+    incomeTransactions,
+    setIncomeTransactions,
+    expensesTransactions,
+    setExpensesTransactions,
+    setBudgets,
 }) => {
 
   
@@ -44,7 +45,9 @@ const Dashboard = ({
           expensesTransactions={expensesTransactions}
         />
       </section>
-      <Budget />
+      <Budget
+        budgets={setBudgets}
+      />
     </main>
   );
 };
