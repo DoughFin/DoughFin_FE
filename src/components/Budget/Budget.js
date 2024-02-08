@@ -14,7 +14,7 @@ const Budget = ({
     return (
     <aside className='budget'>
       <header className='budget-header'>
-        <h2>{budgets.budget.category}</h2>
+        <h2>{budgets}</h2>
         <img className='budget-dropdown-button' src={DropDownIcon} alt='dropdown icon' />
       </header>
       <summary className='budget-pie-chart'>
