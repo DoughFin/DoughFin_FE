@@ -13,7 +13,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "chart.js": "^4.4.1",
-    "cypress": "^13.6.4",
     "graphql": "^16.8.1",
     "mui": "^0.0.1",
     "react": "^18.2.0",
@@ -47,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://doughfin-be.onrender.com"
+  "proxy": "https://doughfin-be.onrender.com",
+  "devDependencies": {
+    "cypress": "^13.6.4"
+  }
 }

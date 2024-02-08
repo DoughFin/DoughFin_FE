@@ -20,7 +20,6 @@ const NavBar = ({userName}) => {
             <img src={GridIcon} alt='bar icon' />
             <p className='navbar-button-text'>Dashboard</p>
           </button>
-          {/* Disabled Buttons */}
           <button className='navbar-button disabled'>
             <img src={BarIcon} alt='Activity icon' />
             <p className='navbar-button-text'>Activity</p>

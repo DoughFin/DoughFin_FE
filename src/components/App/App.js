@@ -22,9 +22,8 @@ const App = () => {
   const [cashFlow, setCashFlow] = useState(null);
 
   {/* Hardcoded user, will pull from getUser endpoint soon */}
-  const userName = "john_smith";
-  const email = "email@email.com"
-  const userId = "1"
+  const userName = "Powdered Toast Man";
+  const email = "moneybaggins@bigbanktakelilbank.doge"
   
   const { loading: loadingIncomes, error: errorIncomes, totalIncomeData } = useGetIncomes(email);
   const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
