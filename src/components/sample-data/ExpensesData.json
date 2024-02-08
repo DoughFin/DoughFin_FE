@@ -1,8 +1,10 @@
 {
   "data": {
-      "currentExpenses": {
-          "amount": 2000.00,
-          "pctChange": 0.16
+      "user": {
+          "currentExpenses": {
+              "amount": 11434.0,
+              "pctChange": -17.912269366070788
+          }
       }
   }
 }

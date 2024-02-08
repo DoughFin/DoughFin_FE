@@ -1,35 +1,415 @@
 {
     "data": {
         "user": {
-            "id": "1"
-        },
-        "expenses": [
-            {
-                "id": "1",
-                "description": "Groceries",
-                "amount": "50.00",
-                "date": "2024-02-01"
-            },
-            {
-                "id": "2",
-                "description": "Dinner",
-                "amount": "30.00",
-                "date": "2024-01-30"
-            }
-        ],
-        "income": [
-            {
-                "id": "3",
-                "source": "Salary",
-                "amount": "5000.00",
-                "date": "2024-02-01"
-            },
-            {
-                "id": "4",
-                "source": "Tips",
-                "amount": "50.00",
-                "date": "2024-02-01"
-            }
-        ]
+            "id": "2",
+            "transactions": [
+                {
+                    "id": "54",
+                    "amount": 31.0,
+                    "date": "2024-02-28",
+                    "vendor": "Wiegand Group",
+                    "status": "credited"
+                },
+                {
+                    "id": "66",
+                    "amount": 386.0,
+                    "date": "2024-02-27",
+                    "vendor": "Mayer-Pacocha",
+                    "status": "credited"
+                },
+                {
+                    "id": "70",
+                    "amount": 1.0,
+                    "date": "2024-02-26",
+                    "vendor": "Nader-Ward",
+                    "status": "credited"
+                },
+                {
+                    "id": "67",
+                    "amount": 262.0,
+                    "date": "2024-02-23",
+                    "vendor": "Hirthe-Hane",
+                    "status": "credited"
+                },
+                {
+                    "id": "68",
+                    "amount": 700.0,
+                    "date": "2024-02-21",
+                    "vendor": "Jakubowski Group",
+                    "status": "credited"
+                },
+                {
+                    "id": "53",
+                    "amount": 96.0,
+                    "date": "2024-02-19",
+                    "vendor": "McLaughlin-Herman",
+                    "status": "credited"
+                },
+                {
+                    "id": "74",
+                    "amount": 273.0,
+                    "date": "2024-02-17",
+                    "vendor": "Baumbach-Brown",
+                    "status": "credited"
+                },
+                {
+                    "id": "76",
+                    "amount": 873.0,
+                    "date": "2024-02-16",
+                    "vendor": "Kihn-Nolan",
+                    "status": "credited"
+                },
+                {
+                    "id": "60",
+                    "amount": 535.0,
+                    "date": "2024-02-15",
+                    "vendor": "Anderson-Glover",
+                    "status": "credited"
+                },
+                {
+                    "id": "7",
+                    "amount": 1521.0,
+                    "date": "2024-02-15",
+                    "vendor": "Nike",
+                    "status": "debited"
+                },
+                {
+                    "id": "58",
+                    "amount": 348.0,
+                    "date": "2024-02-15",
+                    "vendor": "Ankunding, Cummings and Champlin",
+                    "status": "credited"
+                },
+                {
+                    "id": "63",
+                    "amount": 605.0,
+                    "date": "2024-02-15",
+                    "vendor": "Rutherford-Ryan",
+                    "status": "credited"
+                },
+                {
+                    "id": "56",
+                    "amount": 19.0,
+                    "date": "2024-02-14",
+                    "vendor": "Gusikowski, Batz and Bashirian",
+                    "status": "credited"
+                },
+                {
+                    "id": "69",
+                    "amount": 410.0,
+                    "date": "2024-02-14",
+                    "vendor": "Carroll Inc",
+                    "status": "credited"
+                },
+                {
+                    "id": "65",
+                    "amount": 546.0,
+                    "date": "2024-02-14",
+                    "vendor": "Weissnat, Rau and Streich",
+                    "status": "credited"
+                },
+                {
+                    "id": "59",
+                    "amount": 438.0,
+                    "date": "2024-02-12",
+                    "vendor": "Brown and Sons",
+                    "status": "credited"
+                },
+                {
+                    "id": "75",
+                    "amount": 362.0,
+                    "date": "2024-02-11",
+                    "vendor": "McCullough-Harris",
+                    "status": "credited"
+                },
+                {
+                    "id": "73",
+                    "amount": 828.0,
+                    "date": "2024-02-09",
+                    "vendor": "Harber Inc",
+                    "status": "credited"
+                },
+                {
+                    "id": "61",
+                    "amount": 308.0,
+                    "date": "2024-02-09",
+                    "vendor": "Weissnat Group",
+                    "status": "credited"
+                },
+                {
+                    "id": "57",
+                    "amount": 401.0,
+                    "date": "2024-02-09",
+                    "vendor": "Auer and Sons",
+                    "status": "credited"
+                },
+                {
+                    "id": "8",
+                    "amount": 7154.0,
+                    "date": "2024-02-09",
+                    "vendor": "Samsung",
+                    "status": "debited"
+                },
+                {
+                    "id": "64",
+                    "amount": 915.0,
+                    "date": "2024-02-08",
+                    "vendor": "Schmidt, Nicolas and Mohr",
+                    "status": "credited"
+                },
+                {
+                    "id": "55",
+                    "amount": 427.0,
+                    "date": "2024-02-07",
+                    "vendor": "Reinger Inc",
+                    "status": "credited"
+                },
+                {
+                    "id": "78",
+                    "amount": 571.0,
+                    "date": "2024-02-07",
+                    "vendor": "Monahan-White",
+                    "status": "credited"
+                },
+                {
+                    "id": "71",
+                    "amount": 466.0,
+                    "date": "2024-02-06",
+                    "vendor": "Tremblay-Moore",
+                    "status": "credited"
+                },
+                {
+                    "id": "9",
+                    "amount": 3792.0,
+                    "date": "2024-02-03",
+                    "vendor": "Beats",
+                    "status": "debited"
+                },
+                {
+                    "id": "72",
+                    "amount": 19.0,
+                    "date": "2024-02-03",
+                    "vendor": "Gislason-Muller",
+                    "status": "credited"
+                },
+                {
+                    "id": "62",
+                    "amount": 730.0,
+                    "date": "2024-02-01",
+                    "vendor": "Beier and Sons",
+                    "status": "credited"
+                },
+                {
+                    "id": "77",
+                    "amount": 884.0,
+                    "date": "2024-02-01",
+                    "vendor": "Walker and Sons",
+                    "status": "credited"
+                },
+                {
+                    "id": "95",
+                    "amount": 990.0,
+                    "date": "2024-01-28",
+                    "vendor": "Gottlieb LLC",
+                    "status": "credited"
+                },
+                {
+                    "id": "12",
+                    "amount": 7942.0,
+                    "date": "2024-01-27",
+                    "vendor": "Adidas",
+                    "status": "debited"
+                },
+                {
+                    "id": "11",
+                    "amount": 8027.0,
+                    "date": "2024-01-26",
+                    "vendor": "Dell",
+                    "status": "debited"
+                },
+                {
+                    "id": "87",
+                    "amount": 306.0,
+                    "date": "2024-01-25",
+                    "vendor": "O'Reilly, Steuber and Weber",
+                    "status": "credited"
+                },
+                {
+                    "id": "92",
+                    "amount": 682.0,
+                    "date": "2024-01-22",
+                    "vendor": "Mertz-Kling",
+                    "status": "credited"
+                },
+                {
+                    "id": "101",
+                    "amount": 220.0,
+                    "date": "2024-01-22",
+                    "vendor": "Kshlerin-Morar",
+                    "status": "credited"
+                },
+                {
+                    "id": "83",
+                    "amount": 618.0,
+                    "date": "2024-01-20",
+                    "vendor": "Larkin-Gutkowski",
+                    "status": "credited"
+                },
+                {
+                    "id": "94",
+                    "amount": 632.0,
+                    "date": "2024-01-20",
+                    "vendor": "Mueller, Heathcote and Satterfield",
+                    "status": "credited"
+                },
+                {
+                    "id": "81",
+                    "amount": 273.0,
+                    "date": "2024-01-19",
+                    "vendor": "Spinka, Schimmel and Hermann",
+                    "status": "credited"
+                },
+                {
+                    "id": "103",
+                    "amount": 692.0,
+                    "date": "2024-01-19",
+                    "vendor": "Herman and Sons",
+                    "status": "credited"
+                },
+                {
+                    "id": "97",
+                    "amount": 838.0,
+                    "date": "2024-01-17",
+                    "vendor": "Macejkovic-Vandervort",
+                    "status": "credited"
+                },
+                {
+                    "id": "88",
+                    "amount": 176.0,
+                    "date": "2024-01-17",
+                    "vendor": "Considine LLC",
+                    "status": "credited"
+                },
+                {
+                    "id": "91",
+                    "amount": 769.0,
+                    "date": "2024-01-17",
+                    "vendor": "Willms, Weissnat and Hodkiewicz",
+                    "status": "credited"
+                },
+                {
+                    "id": "99",
+                    "amount": 70.0,
+                    "date": "2024-01-15",
+                    "vendor": "Roberts-Murphy",
+                    "status": "credited"
+                },
+                {
+                    "id": "90",
+                    "amount": 178.0,
+                    "date": "2024-01-15",
+                    "vendor": "Champlin-Witting",
+                    "status": "credited"
+                },
+                {
+                    "id": "10",
+                    "amount": 9093.0,
+                    "date": "2024-01-15",
+                    "vendor": "Apple",
+                    "status": "debited"
+                },
+                {
+                    "id": "102",
+                    "amount": 858.0,
+                    "date": "2024-01-14",
+                    "vendor": "Yundt, O'Hara and Becker",
+                    "status": "credited"
+                },
+                {
+                    "id": "85",
+                    "amount": 429.0,
+                    "date": "2024-01-12",
+                    "vendor": "Homenick-Wilkinson",
+                    "status": "credited"
+                },
+                {
+                    "id": "79",
+                    "amount": 170.0,
+                    "date": "2024-01-11",
+                    "vendor": "Breitenberg, Keebler and Bogisich",
+                    "status": "credited"
+                },
+                {
+                    "id": "104",
+                    "amount": 865.0,
+                    "date": "2024-01-11",
+                    "vendor": "Altenwerth, Cassin and Treutel",
+                    "status": "credited"
+                },
+                {
+                    "id": "86",
+                    "amount": 85.0,
+                    "date": "2024-01-11",
+                    "vendor": "McKenzie, Rowe and Braun",
+                    "status": "credited"
+                },
+                {
+                    "id": "98",
+                    "amount": 348.0,
+                    "date": "2024-01-09",
+                    "vendor": "Jakubowski LLC",
+                    "status": "credited"
+                },
+                {
+                    "id": "80",
+                    "amount": 516.0,
+                    "date": "2024-01-09",
+                    "vendor": "Purdy LLC",
+                    "status": "credited"
+                },
+                {
+                    "id": "93",
+                    "amount": 767.0,
+                    "date": "2024-01-08",
+                    "vendor": "Watsica Inc",
+                    "status": "credited"
+                },
+                {
+                    "id": "89",
+                    "amount": 853.0,
+                    "date": "2024-01-06",
+                    "vendor": "Heller-Wisozk",
+                    "status": "credited"
+                },
+                {
+                    "id": "96",
+                    "amount": 596.0,
+                    "date": "2024-01-06",
+                    "vendor": "Lockman Inc",
+                    "status": "credited"
+                },
+                {
+                    "id": "84",
+                    "amount": 236.0,
+                    "date": "2024-01-04",
+                    "vendor": "Crooks LLC",
+                    "status": "credited"
+                },
+                {
+                    "id": "100",
+                    "amount": 832.0,
+                    "date": "2024-01-03",
+                    "vendor": "Barton-Grimes",
+                    "status": "credited"
+                },
+                {
+                    "id": "82",
+                    "amount": 930.0,
+                    "date": "2024-01-02",
+                    "vendor": "Streich, Pouros and Schamberger",
+                    "status": "credited"
+                }
+            ]
+        }
     }
 }

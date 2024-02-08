@@ -39,10 +39,10 @@ const Total = ({
 
     const newTransaction = {
       id: Date.now(),
-      category: name,
+      vendor: name,
       date: date,
       amount: parseFloat(amount),
-      type: totalType === "Total Income:" ? "income" : "expense",
+      status: totalType === "Total Income:" ? "credited" : "debited",
     };
 
     const clearForm = () => {

@@ -5,20 +5,20 @@ const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
   const incomeEntries = incomeTransactions && incomeTransactions.map((transaction) => {
     return (
       <tr className="transactions-tr" key={transaction.id}>
-        <td>{transaction.category}</td>
+        <td>{transaction.vendor}</td>
         <td>{transaction.date}</td>
         <td>${transaction.amount}</td>
-        <td style={{ color: '#02B15A' }} className="transactions-status-text">{transaction.type}</td>
+        <td style={{ color: '#02B15A' }} className="transactions-status-text">{transaction.status}</td>
       </tr>
     );
   });
   const expenseEntries = expensesTransactions && expensesTransactions.map((transaction) => {
     return (
       <tr className="transactions-tr" key={transaction.id}>
-        <td>{transaction.category}</td>
+        <td>{transaction.vendor}</td>
         <td>{transaction.date}</td>
         <td>${transaction.amount}</td>
-        <td style={{ color: '#E41414' }} className="transactions-status-text">{transaction.type}</td>
+        <td style={{ color: '#E41414' }} className="transactions-status-text">{transaction.status}</td>
       </tr>
     );
   });
@@ -44,7 +44,7 @@ const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
               <th>Name</th>
               <th>Date</th>
               <th>Amount</th>
-              <th>Type</th>
+              <th>Status</th>
             </tr>
           </thead>
           <tbody>{incomeEntries}{expenseEntries}

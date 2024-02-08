@@ -1,8 +1,10 @@
 {
   "data": {
-      "currentIncome": {
-          "amount": 9999.00,
-          "pctChange": 0.16
+      "user": {
+          "currentIncomes": {
+              "amount": 12467.0,
+              "pctChange": -50.255366690607296
+          }
       }
   }
 }

@@ -3,8 +3,10 @@ import "./Dashboard.css";
 import Total from "../Total/Total";
 import TransactionsTable from "../TransactionsTable/TransactionsTable";
 import Budget from "../Budget/Budget";
+import CashFlow from "../CashFlow/CashFlow";
 
 const Dashboard = ({
+  cashFlow,
   totalIncome,
   setTotalIncome,
   totalExpenses,
@@ -20,8 +22,9 @@ const Dashboard = ({
   return (
     <main className="dashboard">
       <section className="dashboard-section">
-        <table className="dashboard-activity-chart">
-        </table>
+        <CashFlow 
+          cashFlow={cashFlow}
+        />
         <div className="dashboard-totals-container">
           <Total
             totalType={"Total Income:"}

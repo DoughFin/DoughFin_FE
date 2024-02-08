@@ -1,0 +1,81 @@
+{
+  "data": {
+    "user": {
+      "id": "2",
+      "cashFlows": [
+        {
+          "month": "January",
+          "year": 2024,
+          "totalIncome": 324142.0,
+          "totalExpense": 34302.0
+        },
+        {
+          "month": "February",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "March",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "April",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "May",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "June",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "July",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "August",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "September",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "October",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "November",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        },
+        {
+          "month": "December",
+          "year": 2024,
+          "totalIncome": 651612.0,
+          "totalExpense": 41787.0
+        }
+      ]
+    }
+  }
+}
