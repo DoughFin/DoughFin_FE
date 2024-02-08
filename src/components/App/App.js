@@ -9,6 +9,8 @@ import './App.css';
 import { useGetIncomes } from '../apollo-client/queries/getIncomes';
 import { useGetExpenses } from '../apollo-client/queries/getExpenses';
 import { useGetTransactions } from '../apollo-client/queries/getTransactions';
+import { useCreateExpense } from '../apollo-client/mutations/createExpense';
+import { useCreateIncome } from '../apollo-client/mutations/createIncome';
 
 
 const App = () => {
