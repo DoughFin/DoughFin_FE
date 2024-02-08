@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
 import Dashboard from '../Dashboard/Dashboard'
-// import cashflowData from "../sample-data/CashFlowData.json"
-// import transactionsFixtureData from "../sample-data/TransactionsData.json"
-// import incomeData from "../sample-data/IncomeData.json"
-// import expensesData from "../sample-data/ExpensesData.json"
 import './App.css';
 import { useGetIncomes } from '../apollo-client/queries/getIncomes';
 import { useGetExpenses } from '../apollo-client/queries/getExpenses';
@@ -25,11 +21,23 @@ const App = () => {
   {/* Hardcoded user, will pull from getUser endpoint soon */}
   const userName = "Powdered Toast Man";
   const email = "moneybaggins@bigbanktakelilbank.doge"
+  const userId = 1
+  const vendor = "Live Nation"
+  const category = "Concert Tickets"
+  const amount = "$100.00"
+  const status = "debited"
+  const date = "2023-Dec-31"
+  const source = "WFCS"
+
+
+
   
   const { loading: loadingIncomes, error: errorIncomes, totalIncomeData } = useGetIncomes(email);
   const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
   const { loading: loadingTransactions, error: errorTransactions, transactionsData } = useGetTransactions(email);
   const { loading: loadingCashFlow, error: errorCashFlow, cashFlowData } = useGetCashFlow(email);
+  const  { loading: loadingNewExpense , error: errorNewExpense, newExpenseData } = useCreateExpense(userId, vendor, category, amount, status, date);
+  const  { loading: loadingNewincome , error: errorNewIncome, newIncomeData } = useCreateIncome(userId, source, amount, date);
 
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
@@ -45,6 +53,18 @@ const App = () => {
     setExpensesTransactions(expenseTransactions);
   }, [transactions]);
 
+  function addExpense (newExpenseData) {
+   setExpensesTransactions([...expensesTransactions, newExpenseData])
+   const newTotalExpenses = totalExpenses + newExpenseData.amount;
+   setTotalExpenses(parseInt(newTotalExpenses));
+  }
+
+  function addIncome (newIncomeData) {
+    setIncomeTransactions([...incomeTransactions, newIncomeData]);
+    const newTotalIncome = totalIncome + newIncomeData.amount;
+    setTotalIncome(parseInt(newTotalIncome));
+  }
+
   return (
     <main className='app'>
       <NavBar userName={userName} />
@@ -59,6 +79,8 @@ const App = () => {
         setIncomeTransactions={setIncomeTransactions}
         expensesTransactions={expensesTransactions}
         setExpensesTransactions={setExpensesTransactions}
+        addExpense={addExpense}
+        addIncome={addIncome}
       />
     </main>
   )

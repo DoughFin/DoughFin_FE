@@ -1,4 +1,4 @@
-import { gql, useQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 
 export const CREATE_INCOME = gql`
 mutation CreateIncome ($userId:ID!, $source:String!, $amount:Float!, $date:String!) {
@@ -16,7 +16,7 @@ mutation CreateIncome ($userId:ID!, $source:String!, $amount:Float!, $date:Strin
 }`
 
 export const useCreateIncome = (userId, source, amount, date) => {
-  const { loading, error, data } = useQuery(CREATE_INCOME, {
+  const { loading, error, data } = useMutation(CREATE_INCOME, {
     variables: { userId: userId, sourcce: source, amount: amount, date: date },
   });
   let newIncomeData = null;

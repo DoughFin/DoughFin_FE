@@ -25,6 +25,8 @@ const Total = ({
   setTotalIncome,
   setIncomeTransactions,
   setExpensesTransactions,
+  addIncome,
+  addExpense
 }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
@@ -56,11 +58,13 @@ const Total = ({
       setTotalIncome(
         (prevTotalIncome) => parseFloat(prevTotalIncome) + parseFloat(newTransaction.amount)
       );
+      addIncome(newTransaction);
     } else if (totalType === "Total Expenses:") {
       setExpensesTransactions((prev) => [...prev, newTransaction]);
       setTotalExpenses(
         (prevTotalExpenses) => parseFloat(prevTotalExpenses) + parseFloat(newTransaction.amount)
       );
+      addExpense(newTransaction);
     }
     clearForm();
     handleClose();
