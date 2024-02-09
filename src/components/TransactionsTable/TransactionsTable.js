@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./TransactionsTable.css";
+import { TailSpin } from 'react-loader-spinner';
 
 const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
+  const [loading, setLoading] = useState(true);
+
+
+  setTimeout(() => {
+    setLoading(false); 
+  }, 2000); 
+
   const incomeEntries = incomeTransactions && incomeTransactions.map((transaction) => {
     return (
       <tr className="transactions-tr" key={transaction.id}>
@@ -12,6 +20,7 @@ const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
       </tr>
     );
   });
+
   const expenseEntries = expensesTransactions && expensesTransactions.map((transaction) => {
     return (
       <tr className="transactions-tr" key={transaction.id}>
@@ -22,6 +31,11 @@ const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
       </tr>
     );
   });
+
+  if (loading) {
+    return <TailSpin color="white" radius="3px" />; 
+  }
+
   return (
     <section className="transactions">
       <header className="transactions-header">
@@ -47,8 +61,7 @@ const TransactionsTable = ({ incomeTransactions, expensesTransactions }) => {
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>{incomeEntries}{expenseEntries}
-          </tbody>
+          <tbody>{incomeEntries}{expenseEntries}</tbody>
         </table>
       </div>
     </section>
