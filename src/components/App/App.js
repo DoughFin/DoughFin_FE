@@ -5,6 +5,7 @@ import Dashboard from '../Dashboard/Dashboard'
 // import transactionsFixtureData from "../sample-data/TransactionsData.json"
 // import incomeData from "../sample-data/IncomeData.json"
 // import expensesData from "../sample-data/ExpensesData.json"
+// import budgetsData from "../sample-data/BudgetsData.json"
 import './App.css';
 import { useGetIncomes } from '../apollo-client/queries/getIncomes';
 import { useGetExpenses } from '../apollo-client/queries/getExpenses';
