@@ -4,6 +4,7 @@ import { GET_EXPENSES } from "./queries/getExpenses";
 import { GET_INCOMES } from "./queries/getIncomes";
 import { GET_TRANSACTIONS } from "./queries/getTransactions";
 import { GET_USER_CASH_FLOW } from "./queries/getUserCashFlow";
+import { GET_BUDGETS_BY_PARAMS } from "./components/apollo-client/queries/getBudgetsByParams";
 
 function GetUser({ email }) {
   const { loading, error, data } = useQuery(GET_USER, {
@@ -92,10 +93,52 @@ function GetUserCashFlow({ userId }) {
   );
 }
 
+function GetBudgetsByParams({ month, category, email }) {
+  const { loading, error, data } = useQuery(GET_BUDGETS_BY_PARAMS, {
+    variables: { month, category, email },
+  });
+  if (loading) return null;
+  if (error) return `Error! ${error}`;
+
+  const { user } = data;
+  const budgets = user?.budgets || [];
+  const expenses = user?.expenses || [];
+
+  console.log(budgets);
+  return (
+    <div>
+    <h3>Budgets and Expenses</h3>
+    <div>
+      <h4>Budgets:</h4>
+      {budgets.map((budget) => (
+        <div key={budget.id}>
+          <p>Month: {budget.month}</p>
+          <p>Category: {budget.category}</p>
+          <p>Amount: {budget.amount}</p>
+          <p>Remaining (%): {budget.pctRemaining}</p>
+          <p>Amount Remaining: {budget.amountRemaining}</p>
+        </div>
+      ))}
+    </div>
+    <div>
+      <h4>Expenses:</h4>
+      {expenses.map((expense) => (
+        <div key={expense.id}>
+          <p>Date: {expense.date}</p>
+          <p>Amount: {expense.amount}</p>
+          <p>Category: {expense.category}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+}
+
 export default {
   GetUser,
   GetExpenses,
   GetIncomes,
   GetTransactions,
   GetUserCashFlow,
+  GetBudgetsByParams
 };

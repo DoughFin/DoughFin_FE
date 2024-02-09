@@ -6,7 +6,11 @@ import EllipsePurple from '../../assets/icons/Ellipse-purple.svg'
 import EllipseBlue from '../../assets/icons/Ellipse-blue.svg'
 import PlusIcon from '../../assets/icons/plus-icon.svg'
 
-const Budget = () => {
+const Budget = ({ budgets }) => {
+  const pctRemaining = budgets?.pctRemaining || 'Loading...';
+  const amount = budgets?.amount || 'Loading...'; 
+  const amountRemaining = budgets?.amountRemaining || 'Loading...'; 
+
   return (
     <aside className='budget'>
       <header className='budget-header'>
@@ -22,27 +26,27 @@ const Budget = () => {
             <img src={EllipsePurple} alt='purple ellipse' />
             <p>Daily payment</p>
           </div>
-          <p className='percentage'>25%</p>
+          <p className='percentage'>${pctRemaining}%</p>
         </div>
         <div className='percentage-container'>
           <div className='percentage-description'>
             <img src={EllipseBlue} alt='purple ellipse' />
             <p>Hobby</p>
           </div>
-          <p className='percentage'>15%</p>
+          <p className='percentage'>{1.0 - pctRemaining}%</p>
         </div>
       </section>
       <section className='budget-details-container'>
         <div className='budget-details'>
           <h3 className='budget-details-h3'>Set Budget</h3>
           <div className='budget-details-flex'>
-            <p className='budget-details-amount'>$200</p>
+            <p className='budget-details-amount'>${amount}</p>
           </div>
         </div>
         <div className='budget-details'>
           <h3 className='budget-details-h3'>Remaining Budget</h3>
           <div className='budget-details-flex'>
-            <p className='budget-details-amount'>$200</p>
+            <p className='budget-details-amount'>${amountRemaining}</p>
           </div>
         </div>
       </section>

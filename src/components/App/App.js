@@ -11,7 +11,7 @@ import { useGetIncomes } from '../apollo-client/queries/getIncomes';
 import { useGetExpenses } from '../apollo-client/queries/getExpenses';
 import { useGetTransactions } from '../apollo-client/queries/getTransactions';
 import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
-
+import { useGetBudgetsByParams } from '../apollo-client/queries/getBudgetsByParams';
 
 const App = () => {
   const [transactions, setTransactions] = useState([]);
@@ -20,22 +20,27 @@ const App = () => {
   const [totalIncome, setTotalIncome] = useState(null);
   const [totalExpenses, setTotalExpenses] = useState(null);
   const [cashFlow, setCashFlow] = useState(null);
+  const [budgets, setBudgets] = useState(null);
 
   // Hardcoded user, will pull from getUser endpoint soon
   const userName = "Powdered Toast Man";
   const email = "moneybaggins@bigbanktakelilbank.doge"
+  const month = "2024-02"; 
+  const category = "Groceries"; 
   
   const { totalIncomeData } = useGetIncomes(email);
   const { totalExpensesData } = useGetExpenses(email);
   const { transactionsData } = useGetTransactions(email);
   const { cashFlowData } = useGetCashFlow(email);
+  const { budgetsData } = useGetBudgetsByParams(month, category, email);
 
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
     if (transactionsData) setTransactions(transactionsData);
     if (cashFlowData) setCashFlow(cashFlowData);
-  }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData]);
+    if (budgetsData) setBudgets(budgetsData);
+    }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData, budgetsData]); 
 
   useEffect(() => {
     const incomeTransactions = transactions.filter(t => t.status === 'credited');
@@ -58,6 +63,7 @@ const App = () => {
         setIncomeTransactions={setIncomeTransactions}
         expensesTransactions={expensesTransactions}
         setExpensesTransactions={setExpensesTransactions}
+        budgets={budgets}
       />
     </main>
   )
