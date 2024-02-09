@@ -25,6 +25,7 @@ const App = () => {
   // Hardcoded user, will pull from getUser endpoint soon
   const userName = "john_smith";
   const email = "email@email.com"
+  localStorage.setItem('email', email);
   const month = "2024-02"; 
   const category = "Travel"; 
   
@@ -63,7 +64,6 @@ const App = () => {
         setIncomeTransactions={setIncomeTransactions}
         expensesTransactions={expensesTransactions}
         setExpensesTransactions={setExpensesTransactions}
-        budgets={budgets}
       />
     </main>
   )

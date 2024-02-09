@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useState, useEffect } from 'react';
 
 export const GET_BUDGETS_BY_PARAMS = gql`
 query GetBudgetsByParams($month: String!, $category: String!, $email: String!) {

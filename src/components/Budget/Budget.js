@@ -8,20 +8,25 @@ import EllipseBlue from '../../assets/icons/Ellipse-blue.svg'
 import PlusIcon from '../../assets/icons/plus-icon.svg'
 import { useGetBudgetsByParams } from "../apollo-client/queries/getBudgetsByParams";
 
-const Budget = ({ email }) => {
+const Budget = () => {
+    const email = localStorage.getItem("email");
     const [month, setMonth] = useState(getCurrentMonth());
     const [category, setCategory] = useState("travel");
-    const { loading, error, budgetData } = useGetBudgetsByParams(month, category, email);
+    const { loading, error, budgetsData } = useGetBudgetsByParams(month, category, email);
+    // debugger;
+    if (error) {
+        console.error("Error fetching data:", error);
+    }
+    console.log("Fetched budgetData:", budgetsData);
+    const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
+    const amount = budgetsData?.budgets[0]?.amount || 'Loading...';
+    const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
     // State to manage dropdown visibility
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [dropDownStyle, setDropdownStyle] = useState({}); // State to hold modal's dynamic style
     // references
     const dropdownRef = useRef(null); // Ref for the dropdown icon to position the modal
     const modalRef = useRef(null); // Add a ref for the modal
-    // debugger;
-    const pctRemaining = budgetData?.pctRemaining || 'Loading...';
-    const amount = budgetData?.amount || 'Loading...';
-    const amountRemaining = budgetData?.amountRemaining || 'Loading...';
 
     // Handler functions for updating state
     const handleCategoryChange = (selectedCategory) => {
@@ -49,8 +54,11 @@ const Budget = ({ email }) => {
     };
     // Utility function to get current month, implementation depends on your needs
     function getCurrentMonth() {
-        // Implementation for current month; e.g., using Date object
-        return new Date().getMonth() + 1; // Adjust based on how months are indexed in your app
+        const date = new Date();
+        const year = date.getFullYear(); // Get current year
+        let month = date.getMonth() + 1; // Get current month (0-11, hence +1)
+        month = month < 10 ? `0${month}` : month; // Ensure month is in two digits
+        return `${year}-${month}`; // Concatenate to get "YYYY-MM" format
     }
 
     useEffect(() => {
@@ -89,7 +97,12 @@ const Budget = ({ email }) => {
           )}
       </header>
         <summary className='budget-pie-chart'>
-            <BasicPie/>
+            <BasicPie
+                data={[
+                    { id: 0, value: (100 - pctRemaining) },
+                    { id: 1, value: pctRemaining },
+                ]}
+            />
         </summary>
         <section className='budget-percentage-breakdown'>
             <div className='percentage-container'>
@@ -97,14 +110,14 @@ const Budget = ({ email }) => {
                     <img src={EllipsePurple} alt='purple ellipse'/>
                     <p>budget remaining</p>
                 </div>
-                <p className='percentage'>${pctRemaining}%</p>
+                <p className='percentage'>{pctRemaining}%</p>
             </div>
             <div className='percentage-container'>
           <div className='percentage-description'>
             <img src={EllipseBlue} alt='purple ellipse' />
             <p>budget used</p>
           </div>
-          <p className='percentage'>{1.0 - pctRemaining}%</p>
+          <p className='percentage'>{100 - pctRemaining}%</p>
         </div>
       </section>
       <section className='budget-details-container'>

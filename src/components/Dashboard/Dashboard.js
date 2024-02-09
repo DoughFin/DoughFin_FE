@@ -46,7 +46,7 @@ const Dashboard = ({
         />
       </section>
       <Budget 
-        budgets={budgets}
+
       />
     </main>
   );
