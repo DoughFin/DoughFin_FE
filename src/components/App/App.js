@@ -18,17 +18,14 @@ const App = () => {
   const [totalExpenses, setTotalExpenses] = useState(null);
   const [cashFlow, setCashFlow] = useState(null);
 
-  {/* Hardcoded user, will pull from getUser endpoint soon */}
-  const userName = "john_smith";
-  const email = "email@email.com"
-
-
-
+  // Hardcoded user, will pull from getUser endpoint soon
+  const userName = "Powdered Toast Man";
+  const email = "moneybaggins@bigbanktakelilbank.doge"
   
-  const { loading: loadingIncomes, error: errorIncomes, totalIncomeData } = useGetIncomes(email);
-  const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
-  const { loading: loadingTransactions, error: errorTransactions, transactionsData } = useGetTransactions(email);
-  const { loading: loadingCashFlow, error: errorCashFlow, cashFlowData } = useGetCashFlow(email);
+  const { totalIncomeData } = useGetIncomes(email);
+  const { totalExpensesData } = useGetExpenses(email);
+  const { transactionsData } = useGetTransactions(email);
+  const { cashFlowData } = useGetCashFlow(email);
 
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
