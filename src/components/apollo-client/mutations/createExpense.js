@@ -19,13 +19,8 @@ mutation CreateExpense($userId: ID!, $vendor: String, $cat: String!, $amount: Fl
   }
 }`
 
-export const useCreateExpense = (userId, vendor, category, amount, status, date) => {
-  const { loading, error, data } = useMutation(CREATE_EXPENSE, {
-    variables: { userId: userId, vendor: vendor, category: category, amount: amount, status: status, date: date },
-  });
-  let newExpenseData = null;
-  if (!loading && data) {
-    newExpenseData = data?.user?.currentExpenses?.amount?.toFixed(2);
-  }
-  return { loading, error, newExpenseData };
+export const useCreateExpense = () => {
+  const [mutate, { data, loading, error }] = useMutation(CREATE_EXPENSE);
+    const executeMutation = (userId, vendor, category, amount, status, date ) => mutate({userId, vendor, category, amount, status, date});
+  return [executeMutation, { data, loading, error }];
 };

@@ -18,13 +18,8 @@ mutation CreateIncome ($userId:ID!, $source:String!, $amount:Float!, $date:Strin
  }
 }`
 
-export const useCreateIncome = (userId, source, amount, date) => {
-  const { loading, error, data } = useMutation(CREATE_INCOME, {
-    variables: { userId: userId, source: source, amount: amount, date: date },
-  });
-  let newIncomeData = null;
-  if (!loading && data) {
-    newIncomeData = data?.user?.currentIncome?.income?.amount?.toFixed(2);
-  }
-  return { loading, error, newIncomeData };
+export const useCreateIncome = () => {
+  const [mutate, { data, loading, error }] = useMutation(CREATE_INCOME);
+    const executeMutation = (userId, source, amount, date ) => mutate({userId, source, amount, date});
+  return [executeMutation, { data, loading, error }];
 };

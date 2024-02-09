@@ -26,7 +26,6 @@ const Total = ({
   setIncomeTransactions,
   setExpensesTransactions,
   useCreateExpense,
-  useCreateIncome
 }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import "./IncomeTotal.css";
 import PlusIcon from "../../assets/icons/white-plus-icon.svg";
+import { useCreateIncome } from "../apollo-client/mutations/createIncome";
 
 const style = {
   position: "absolute",
@@ -18,17 +19,18 @@ const style = {
   color: "#FFF",
 };
 
+
 const IncomeTotal = ({
   totalType,
   totalAmount,
   setTotalIncome,
   setIncomeTransactions,
-  useCreateIncome
 }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+  const [createIncome, { data, loading, error }] = useCreateIncome();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -53,7 +55,7 @@ const IncomeTotal = ({
       setTotalIncome(
         (prevTotalIncome) => parseFloat(prevTotalIncome) + parseFloat(newIncome.amount)
       );
-      useCreateIncome(newIncome.id, newIncome.source, newIncome.amount, newIncome.date)
+    createIncome({newIncome});
     
     clearForm();
     handleClose();

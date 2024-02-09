@@ -1,0 +1,45 @@
+{
+  "data": {
+      "user": {
+          "id": "1",
+          "cashFlows": [
+              {
+                  "month": "February",
+                  "year": 2023,
+                  "totalIncome": 12500.0,
+                  "totalExpense": 0.0
+              },
+{
+                  "month": "April",
+                  "year": 2024,
+                  "totalIncome": 2000.0,
+                  "totalExpense": 0.0
+              },
+              {
+                  "month": "February",
+                  "year": 2024,
+                  "totalIncome": 3070000.0,
+                  "totalExpense": 6960.0
+              },
+              {
+                  "month": "January",
+                  "year": 2024,
+                  "totalIncome": 5000.0,
+                  "totalExpense": 0.0
+              },
+              {
+                  "month": "March",
+                  "year": 2024,
+                  "totalIncome": 3000.0,
+                  "totalExpense": 0.0
+              },
+              {
+                  "month": "May",
+                  "year": 2024,
+                  "totalIncome": 1000.0,
+                  "totalExpense": 0.0
+              }
+          ]
+      }
+  }
+}

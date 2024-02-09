@@ -47,6 +47,7 @@ export default function BasicSelect() {
           Year
         </InputLabel>
         <Select
+         className=".basic-select"
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={year}

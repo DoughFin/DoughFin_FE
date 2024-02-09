@@ -15,7 +15,7 @@ const Dashboard = ({
   setIncomeTransactions,
   expensesTransactions,
   setExpensesTransactions,
-  UseCreateExpense,
+  useCreateExpense,
   useCreateIncome
 }) => {
 
@@ -29,7 +29,6 @@ const Dashboard = ({
         />
         <div className="dashboard-totals-container">
           <IncomeTotal
-            totalType={"Total Income:"}
             setIncomeTransactions={setIncomeTransactions}
             totalAmount={totalIncome}
             setTotalIncome={setTotalIncome}

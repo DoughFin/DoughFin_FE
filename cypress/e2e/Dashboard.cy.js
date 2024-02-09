@@ -1,10 +1,10 @@
 import BasicSelect from "../../src/components/CashFlow/BasicSelect";
 
 beforeEach(() => {
-  // cy.intercept("GET", "https://opentdb.com/api.php?amount=5&type=multiple&difficulty=easy", {
-  //   statusCode: 200,
-  //   fixture: "data"
-  // });
+  cy.intercept("POST", "http://localhost:3000/graphql", {
+    statusCode: 401,
+    fixture: "data"
+  });
   cy.visit("http://localhost:3003");
 })
 
@@ -37,13 +37,12 @@ describe("Dashboard", () => {
     cy.get(".cashflow-header-income").contains(".cashflow-header-text", "Expenses").should("exist");
   });
 
-  // it('should have a BasicSelect dropdown', () => {
-  //   cy.get(BasicSelect).should('be.visible').click();
+  it('should have a BasicSelect dropdown', () => {
+    cy.get(".MuiBox-root").should("be.visible").click()
 
-  //   cy.get('#demo-simple-select').should('contain.text', '2022');
-  //   cy.get('#demo-simple-select').should('contain.text', '2023');
-  //   cy.get('#demo-simple-select').should('contain.text', '2024');
-  // });
+    cy.get('li').first().invoke("attr", "data-value").should("eq", "2022");
+    cy.get('li').last().invoke("attr", "data-value").should("eq", "2024");
+  });
 
   it("should have bar chart elements", () => {
     cy.get(".css-16ktrx5-MuiResponsiveChart-container").should("exist");

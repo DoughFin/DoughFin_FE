@@ -18,7 +18,7 @@ const CashFlow = ({ cashFlow }) => {
           <img src={EllipseBlue} alt='purple ellipse' />
           <p className='cashflow-header-text'>Expenses</p>
         </div>
-        <BasicSelect />
+        <BasicSelect/>
       </header>
       <BarChart 
         cashFlow={cashFlow}
