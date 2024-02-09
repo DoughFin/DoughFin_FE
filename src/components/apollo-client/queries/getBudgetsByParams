@@ -1,0 +1,38 @@
+import { gql, useQuery } from "@apollo/client";
+
+export const GET_BUDGETS_BY_PARAMS = gql`
+query GetBudgetsByParams($month: String!, $category: String!, $userId: ID!) {
+  user(id: $userId) {
+      id
+      budgets(month: $month, category: $category) {
+          id
+          month
+          category
+          amount
+          pctRemaining
+          amountRemaining
+      }
+      expenses(category: $category, month: $month) {
+          id
+          amount
+          date
+          category
+      }
+  }
+}`
+
+export const useGetBudgetsByParams = ({ month, category, userId }) => {
+  const { loading, error, data } = useQuery(GET_BUDGETS_BY_PARAMS, {
+    variables: { month, category, userId },
+  });
+
+  let budgetsData = null;
+  if (!loading && data) {
+    budgetsData = {
+      budgets: data.user?.budgets,
+      expenses: data.user?.expenses,
+    };
+  }
+
+  return { loading, error, budgetsData };
+};
