@@ -15,6 +15,7 @@ const Dashboard = ({
   setIncomeTransactions,
   expensesTransactions,
   setExpensesTransactions,
+  budgets
 }) => {
 
   
@@ -44,7 +45,9 @@ const Dashboard = ({
           expensesTransactions={expensesTransactions}
         />
       </section>
-      <Budget />
+      <Budget 
+        budgets={budgets}
+      />
     </main>
   );
 };

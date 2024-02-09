@@ -21,39 +21,19 @@ query GetBudgetsByParams($month: String!, $category: String!, $email: String!) {
   }
 }`
 
-interface Budget {
-  id: string;
-  month: string;
-  category: string;
-  amount: number;
-  pctRemaining: number;
-  amountRemaining: number;
-}
-
-interface Expense {
-  id: string;
-  amount: number;
-  date: string;
-  category: string;
-}
-
-interface BudgetsData {
-  budgets: Budget[];
-  expenses: Expense[];
-}
-
-export const useGetBudgetsByParams = ({ month, category, email }) => {
+export const useGetBudgetsByParams = ( month, category, email ) => {
   const { loading, error, data } = useQuery(GET_BUDGETS_BY_PARAMS, {
     variables: { month, category, email },
   });
+  debugger;
 
-  let budgetsData: BudgetsData | null = null;
+  let budgetsData = null;
   if (!loading && data) {
     budgetsData = {
       budgets: data.user?.budgets,
       expenses: data.user?.expenses,
     };
   }
-
+  debugger;
   return { loading, error, budgetsData };
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
 import Dashboard from '../Dashboard/Dashboard'
-// import cashflowData from "../sample-data/CashFlowData.json"
+// import cashFlowData from "../sample-data/CashFlowData.json"
 // import transactionsFixtureData from "../sample-data/TransactionsData.json"
 // import incomeData from "../sample-data/IncomeData.json"
 // import expensesData from "../sample-data/ExpensesData.json"
@@ -23,10 +23,10 @@ const App = () => {
   const [budgets, setBudgets] = useState(null);
 
   // Hardcoded user, will pull from getUser endpoint soon
-  const userName = "Powdered Toast Man";
-  const email = "moneybaggins@bigbanktakelilbank.doge"
+  const userName = "john_smith";
+  const email = "email@email.com"
   const month = "2024-02"; 
-  const category = "Groceries"; 
+  const category = "Travel"; 
   
   const { totalIncomeData } = useGetIncomes(email);
   const { totalExpensesData } = useGetExpenses(email);
