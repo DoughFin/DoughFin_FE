@@ -13,7 +13,6 @@ import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
 
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
   const [transactions, setTransactions] = useState([]);
   const [incomeTransactions, setIncomeTransactions] = useState([]);
   const [expensesTransactions, setExpensesTransactions] = useState([]);
@@ -23,19 +22,13 @@ const App = () => {
 
   {/* Hardcoded user, will pull from getUser endpoint soon */}
   const userName = "Powdered Toast Man";
-  const email = "moneybaggins@bigbanktakelilbank.doge"
+  const email = "email@email.com"
   
   const { loading: loadingIncomes, error: errorIncomes, totalIncomeData } = useGetIncomes(email);
   const { loading: loadingExpenses, error: errorExpenses, totalExpensesData } = useGetExpenses(email);
   const { loading: loadingTransactions, error: errorTransactions, transactionsData } = useGetTransactions(email);
   const { loading: loadingCashFlow, error: errorCashFlow, cashFlowData } = useGetCashFlow(email);
 
-  useEffect(() => {
-    if (!loadingIncomes && !loadingExpenses && !loadingTransactions && !loadingCashFlow) {
-      setLoading(false);
-    }
-  }, [loadingIncomes, loadingExpenses, loadingTransactions, loadingCashFlow]);
-  
   useEffect(() => {
     if (totalIncomeData) setTotalIncome(totalIncomeData);
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
@@ -49,8 +42,6 @@ const App = () => {
     setIncomeTransactions(incomeTransactions);
     setExpensesTransactions(expenseTransactions);
   }, [transactions]);
-
-  if (loading) { return <div>Loading...</div>; }
 
   return (
     <main className='app'>
