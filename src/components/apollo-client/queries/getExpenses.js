@@ -16,7 +16,7 @@ export const useGetExpenses = (email) => {
   });
   let totalExpensesData = null;
   if (!loading && data) {
-    totalExpensesData = data?.user?.currentExpenses?.amount?.toFixed(2);
+    totalExpensesData = data?.user?.currentExpenses?.amount;
   }
   return { loading, error, totalExpensesData };
 };

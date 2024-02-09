@@ -12,10 +12,8 @@ import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
 
 const App = () => {
   const [transactions, setTransactions] = useState([]);
-  const [incomeTransactions, setIncomeTransactions] = useState([]);
-  const [expensesTransactions, setExpensesTransactions] = useState([]);
-  const [totalIncome, setTotalIncome] = useState(null);
-  const [totalExpenses, setTotalExpenses] = useState(null);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpenses, setTotalExpenses] = useState(0);
   const [cashFlow, setCashFlow] = useState(null);
 
   // Hardcoded user, will pull from getUser endpoint soon
@@ -28,20 +26,18 @@ const App = () => {
   const { cashFlowData } = useGetCashFlow(email);
 
   useEffect(() => {
-    if (totalIncomeData) setTotalIncome(totalIncomeData);
+    if (totalIncomeData) {
+      const totalIncomeCents = Math.round(parseFloat(totalIncomeData) * 100);
+      setTotalIncome(totalIncomeCents);
+    }
+    if (totalExpensesData) {
+      const totalExpensesCents = Math.round(parseFloat(totalExpensesData) * 100);
+      setTotalExpenses(totalExpensesCents);
+    }
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
     if (transactionsData) setTransactions(transactionsData);
     if (cashFlowData) setCashFlow(cashFlowData);
   }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData]);
-
-  useEffect(() => {
-    const incomeTransactions = transactions.filter(t => t.status === 'credited');
-    const expenseTransactions = transactions.filter(t => t.status === 'debited');
-    setIncomeTransactions(incomeTransactions);
-    setExpensesTransactions(expenseTransactions);
-  }, [transactions]);
-
-
 
   return (
     <main className='app'>
@@ -49,16 +45,11 @@ const App = () => {
       <Dashboard
         cashFlow={cashFlow}
         transactions={transactions}
+        setTransactions={setTransactions}
         totalIncome={totalIncome}
         setTotalIncome={setTotalIncome}
         totalExpenses={totalExpenses}
         setTotalExpenses={setTotalExpenses}
-        incomeTransactions={incomeTransactions}
-        setIncomeTransactions={setIncomeTransactions}
-        expensesTransactions={expensesTransactions}
-        setExpensesTransactions={setExpensesTransactions}
-        useCreateExpense={useCreateExpense}
-        useCreateIncome={useCreateIncome}
       />
     </main>
   )

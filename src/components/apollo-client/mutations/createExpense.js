@@ -1,26 +1,28 @@
 import { gql, useMutation } from "@apollo/client";
 
 export const CREATE_EXPENSE = gql`
-mutation CreateExpense($userId: ID!, $vendor: String, $cat: String!, $amount: Float!, $status: String!, $date: String!) {
-  createExpense(
+mutation CreateExpense($userId: ID!, $vendor: String!, $category: String!, $amount: Float!, $date: String!) {
+  createExpense(input: {
       userId: $userId,
       vendor: $vendor,
-      category: $cat,
+      category: $category,
       amount: $amount,
-      status: $status,
       date: $date
-  ) {
+  }) {
       userId
       vendor
       category
       amount
-      status
       date
   }
 }`
 
 export const useCreateExpense = () => {
-  const [mutate, { data, loading, error }] = useMutation(CREATE_EXPENSE);
-    const executeMutation = (userId, vendor, category, amount, status, date ) => mutate({userId, vendor, category, amount, status, date});
-  return [executeMutation, { data, loading, error }];
+  const [createExpenseMutation, { loading, error, data }] = useMutation(CREATE_EXPENSE);
+  return {
+    createExpense: createExpenseMutation,
+    loading,
+    error,
+    data,
+  };
 };

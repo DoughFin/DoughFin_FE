@@ -3,20 +3,17 @@ import "./Dashboard.css";
 import TransactionsTable from "../TransactionsTable/TransactionsTable";
 import Budget from "../Budget/Budget";
 import CashFlow from "../CashFlow/CashFlow";
-import IncomeTotal from "../IncomeTotal/IncomeTotal";
+import AddExpense from "../AddExpense/AddExpense";
+import AddIncome from "../AddIncome/AddIncome";
 
 const Dashboard = ({
   cashFlow,
+  transactions,
+  setTransactions,
   totalIncome,
   setTotalIncome,
   totalExpenses,
   setTotalExpenses,
-  incomeTransactions,
-  setIncomeTransactions,
-  expensesTransactions,
-  setExpensesTransactions,
-  useCreateExpense,
-  useCreateIncome
 }) => {
 
   
@@ -28,25 +25,19 @@ const Dashboard = ({
           cashFlow={cashFlow}
         />
         <div className="dashboard-totals-container">
-          <IncomeTotal
-            setIncomeTransactions={setIncomeTransactions}
-            totalAmount={totalIncome}
+          <AddIncome
+            totalIncome={totalIncome}
             setTotalIncome={setTotalIncome}
-            useCreateIncome={useCreateIncome}
+            setTransactions={setTransactions}
           />
-          {/* <ExpenseTotal
-            totalType={"Total Expenses:"}
-            setExpensesTransactions={setExpensesTransactions} 
-            totalAmount={totalExpenses}
+          <AddExpense
+            totalExpenses={totalExpenses}
             setTotalExpenses={setTotalExpenses}
-            addExpense={addExpense}
-            useCreateExpense={useCreateExpense}
-            useCreateIncome={useCreateIncome}
-          /> */}
+            setTransactions={setTransactions}
+          />
         </div>
         <TransactionsTable
-          incomeTransactions={incomeTransactions}
-          expensesTransactions={expensesTransactions}
+          transactions={transactions}
         />
       </section>
       <Budget />
