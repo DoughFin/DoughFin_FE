@@ -4,7 +4,7 @@ import { GET_EXPENSES } from "./queries/getExpenses";
 import { GET_INCOMES } from "./queries/getIncomes";
 import { GET_TRANSACTIONS } from "./queries/getTransactions";
 import { GET_USER_CASH_FLOW } from "./queries/getUserCashFlow";
-import { GET_BUDGETS_BY_PARAMS } from "./components/apollo-client/queries/getBudgetsByParams";
+import { GET_BUDGETS_BY_PARAMS } from "./queries/getBudgetsByParams";
 
 function GetUser({ email }) {
   const { loading, error, data } = useQuery(GET_USER, {
