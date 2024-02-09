@@ -23,9 +23,8 @@ query GetBudgetsByParams($month: String!, $category: String!, $email: String!) {
 
 export const useGetBudgetsByParams = ( month, category, email ) => {
   const { loading, error, data } = useQuery(GET_BUDGETS_BY_PARAMS, {
-    variables: { month, category, email },
+    variables: { month: month, category: category, email: email },
   });
-  debugger;
 
   let budgetsData = null;
   if (!loading && data) {
@@ -34,6 +33,6 @@ export const useGetBudgetsByParams = ( month, category, email ) => {
       expenses: data.user?.expenses,
     };
   }
-  debugger;
+
   return { loading, error, budgetsData };
 };

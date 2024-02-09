@@ -1,0 +1,20 @@
+.select-modal {
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.77);
+    padding: 10px 0;
+    border-radius: 4px;
+    z-index: 100; /* Ensure it sits above other content */
+}
+
+.select-modal div {
+    padding: 7px 7px; /* Apply horizontal padding here for content alignment */
+    margin: 0; /* Remove margin to allow hover to fill from edge to edge */
+    width: 100%; /* Adjust width to account for padding */
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.select-modal div:hover {
+    background-color: rgba(86, 77, 201, 0.7); /* Updated color for visibility */
+    /* Ensures hover effect extends to full width of each option */
+}
