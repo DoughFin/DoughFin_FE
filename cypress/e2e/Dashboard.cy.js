@@ -47,7 +47,8 @@ describe("Dashboard", () => {
   it("should have bar chart elements", () => {
     cy.get(".css-16ktrx5-MuiResponsiveChart-container").should("exist");
     cy.get(".css-13aj3tc-MuiChartsSurface-root").should("exist");
-    // cy.get("xAxis").should("exist");
+    cy.get(".MuiChartsAxis-directionX").should("be.visible");
+    cy.get(".MuiChartsAxis-directionY").should("be.visible");
   });
 })
 
