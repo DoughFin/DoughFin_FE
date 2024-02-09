@@ -1,9 +1,9 @@
 import React from "react";
 import "./Dashboard.css";
-import Total from "../Total/Total";
 import TransactionsTable from "../TransactionsTable/TransactionsTable";
 import Budget from "../Budget/Budget";
 import CashFlow from "../CashFlow/CashFlow";
+import IncomeTotal from "../IncomeTotal/IncomeTotal";
 
 const Dashboard = ({
   cashFlow,
@@ -15,7 +15,7 @@ const Dashboard = ({
   setIncomeTransactions,
   expensesTransactions,
   setExpensesTransactions,
-  useCreateExpense,
+  UseCreateExpense,
   useCreateIncome
 }) => {
 
@@ -28,14 +28,14 @@ const Dashboard = ({
           cashFlow={cashFlow}
         />
         <div className="dashboard-totals-container">
-          <Total
+          <IncomeTotal
             totalType={"Total Income:"}
             setIncomeTransactions={setIncomeTransactions}
             totalAmount={totalIncome}
             setTotalIncome={setTotalIncome}
-            addIncome={addIncome}
+            useCreateIncome={useCreateIncome}
           />
-          <Total
+          {/* <ExpenseTotal
             totalType={"Total Expenses:"}
             setExpensesTransactions={setExpensesTransactions} 
             totalAmount={totalExpenses}
@@ -43,7 +43,7 @@ const Dashboard = ({
             addExpense={addExpense}
             useCreateExpense={useCreateExpense}
             useCreateIncome={useCreateIncome}
-          />
+          /> */}
         </div>
         <TransactionsTable
           incomeTransactions={incomeTransactions}

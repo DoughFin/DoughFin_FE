@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
-import "./Total.css";
+import "./IncomeTotal.css";
 import PlusIcon from "../../assets/icons/white-plus-icon.svg";
 
 const style = {
@@ -18,21 +18,17 @@ const style = {
   color: "#FFF",
 };
 
-const Total = ({
+const IncomeTotal = ({
   totalType,
   totalAmount,
-  setTotalExpenses,
   setTotalIncome,
   setIncomeTransactions,
-  setExpensesTransactions,
-  useCreateExpense,
   useCreateIncome
 }) => {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
-  const [category, setCategory] = useState("")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -48,34 +44,17 @@ const Total = ({
       status: "debited",
     };
 
-    const newExpense = {
-      id: Date.now(),
-      vendor: name,
-      date: date,
-      category: category,
-      amount: parseFloat(amount),
-      status: "credited",
-    }
-
     const clearForm = () => {
       setName("");
       setAmount("");
       setDate("");
     };
-
-    if (totalType === "Total Income:") {
-      setIncomeTransactions((prev) => [...prev, newTransaction]);
+      setIncomeTransactions((prev) => [...prev, newIncome]);
       setTotalIncome(
-        (prevTotalIncome) => parseFloat(prevTotalIncome) + parseFloat(newTransaction.amount)
+        (prevTotalIncome) => parseFloat(prevTotalIncome) + parseFloat(newIncome.amount)
       );
-      useCreateIncome(newTransaction.id, newTransaction.vendor, newTransaction.amount, newTransaction.date)
-    } else if (totalType === "Total Expenses:") {
-      setExpensesTransactions((prev) => [...prev, newTransaction]);
-      setTotalExpenses(
-        (prevTotalExpenses) => parseFloat(prevTotalExpenses) + parseFloat(newTransaction.amount)
-      );
-      useCreateExpense(newTransaction.id, newTransaction.vendor, newTransaction)
-    }
+      useCreateIncome(newIncome.id, newIncome.source, newIncome.amount, newIncome.date)
+    
     clearForm();
     handleClose();
   };
@@ -94,7 +73,7 @@ const Total = ({
         >
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2">
-              Add New {totalType === "Total Income:" ? "Income" : "Expense"}
+              Add New Income
             </Typography>
             <form onSubmit={handleSubmit}>
               <TextField
@@ -227,4 +206,4 @@ const Total = ({
   );
 };
 
-export default Total;
+export default IncomeTotal;

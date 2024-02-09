@@ -19,7 +19,8 @@ const App = () => {
   const [cashFlow, setCashFlow] = useState(null);
 
   {/* Hardcoded user, will pull from getUser endpoint soon */}
-
+  const userName = "john_smith";
+  const email = "email@email.com"
 
 
 
