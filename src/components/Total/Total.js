@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal, Box, TextField, Button, Typography } from "@mui/material";
 import "./Total.css";
 import PlusIcon from "../../assets/icons/white-plus-icon.svg";
+import { TailSpin } from 'react-loader-spinner';
 
 const style = {
   position: "absolute",
@@ -27,6 +28,7 @@ const Total = ({
   setExpensesTransactions,
 }) => {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false); 
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -34,7 +36,7 @@ const Total = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newTransaction = {
@@ -64,6 +66,7 @@ const Total = ({
     }
     clearForm();
     handleClose();
+    setLoading(false);
   };
 
   return (
@@ -204,10 +207,14 @@ const Total = ({
             </form>
           </Box>
         </Modal>
+        {loading ? ( 
+          <TailSpin color="red" radius="8px" />
+        ) : (
         <div className="totals-text-flex">
           <p className="totals-text">{totalType}</p>
           <p className="totals-amount">${totalAmount}</p>
         </div>
+        )}
       </div>
     </summary>
   );
