@@ -7,6 +7,7 @@ import EllipsePurple from '../../assets/icons/Ellipse-purple.svg'
 import EllipseBlue from '../../assets/icons/Ellipse-blue.svg'
 import PlusIcon from '../../assets/icons/plus-icon.svg'
 import { useGetBudgetsByParams } from "../apollo-client/queries/getBudgetsByParams";
+import { useGetBudgetCategories } from "../apollo-client/queries/getBudgetCategories";
 
 const Budget = () => {
     const email = localStorage.getItem("email");
@@ -21,6 +22,9 @@ const Budget = () => {
     const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
     const amount = budgetsData?.budgets[0]?.amount || 'Loading...';
     const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
+
+    const { loading: loadingCategories, error: errorCategories, budgetCategoriesData } = useGetBudgetCategories(email);
+    const categories = budgetCategoriesData || [];
     // State to manage dropdown visibility
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [dropDownStyle, setDropdownStyle] = useState({}); // State to hold modal's dynamic style
@@ -88,11 +92,14 @@ const Budget = () => {
           {/* Conditionally render select dropdown */}
           {isDropdownVisible && (
               <div ref={modalRef} className="select-modal" style={dropDownStyle}>
-                  {/* Modal content with options */}
-                  <div onClick={() => handleCategoryChange('travel')}>travel</div>
-                  <div onClick={() => handleCategoryChange('rent')}>rent</div>
-                  <div onClick={() => handleCategoryChange('groceries')}>groceries</div>
-                  {/* Add more options as needed */}
+                  {/* Dynamically generated modal content with options */}
+                  {budgetCategoriesData.length > 0 ? (
+                      budgetCategoriesData.map((category, index) => (
+                      <div key={index} onClick={() => handleCategoryChange(category)}>{category}</div>
+                    ))
+              ) : (
+              <div>Loading categories...</div> // Or handle the empty state differently
+              )}
               </div>
           )}
       </header>
