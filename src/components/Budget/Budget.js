@@ -120,27 +120,27 @@ const Budget = () => {
             <div className='percentage-container'>
                 <div className='percentage-description'>
                     <img src={EllipsePurple} alt='purple ellipse'/>
-                    <p>budget remaining</p>
+                    <p>Budget Remaining</p>
                 </div>
                 <p className='percentage'>{pctRemaining}%</p>
             </div>
             <div className='percentage-container'>
           <div className='percentage-description'>
             <img src={EllipseBlue} alt='purple ellipse' />
-            <p>budget used</p>
+            <p>Budget Used</p>
           </div>
           <p className='percentage'>{100 - pctRemaining}%</p>
         </div>
       </section>
       <section className='budget-details-container'>
         <div className='budget-details'>
-          <h3 className='budget-details-h3'>budgeted amount</h3>
+          <h3 className='budget-details-h3'>Budgeted Amount</h3>
           <div className='budget-details-flex'>
             <p className='budget-details-amount'>${amount}</p>
           </div>
         </div>
         <div className='budget-details'>
-          <h3 className='budget-details-h3'>remaining budget</h3>
+          <h3 className='budget-details-h3'>Remaining Budget</h3>
           <div className='budget-details-flex'>
             <p className='budget-details-amount'>${amountRemaining}</p>
           </div>
