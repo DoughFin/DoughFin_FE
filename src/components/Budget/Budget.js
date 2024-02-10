@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import './Budget.css'
 import BasicPie from './BasicPie'
 import './budgetSelectModal.css'
@@ -10,9 +10,13 @@ import { useGetBudgetsByParams } from "../apollo-client/queries/getBudgetsByPara
 import { useGetBudgetCategories } from "../apollo-client/queries/getBudgetCategories";
 
 const Budget = () => {
-    const email = localStorage.getItem("email");
+    const email = "moneybaggins@bigbanktakelilbank.doge";
+    const { loading: loadingCategories, error: errorCategories, budgetCategoriesData } = useGetBudgetCategories(email);
+    console.log("Fetched budgetCategoriesData:", budgetCategoriesData);
+    const categories = loadingCategories || errorCategories ? [] : budgetCategoriesData || [];
+
+    const [category, setCategory] = useState();
     const [month, setMonth] = useState(getCurrentMonth());
-    const [category, setCategory] = useState("travel");
     const { loading, error, budgetsData } = useGetBudgetsByParams(month, category, email);
     // debugger;
     if (error) {
@@ -23,8 +27,6 @@ const Budget = () => {
     const amount = budgetsData?.budgets[0]?.amount || 'Loading...';
     const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
 
-    const { loading: loadingCategories, error: errorCategories, budgetCategoriesData } = useGetBudgetCategories(email);
-    const categories = budgetCategoriesData || [];
     // State to manage dropdown visibility
     const [isDropdownVisible, setIsDropdownVisible] = useState(false);
     const [dropDownStyle, setDropdownStyle] = useState({}); // State to hold modal's dynamic style
@@ -66,6 +68,12 @@ const Budget = () => {
     }
 
     useEffect(() => {
+        if (categories.length > 0) {
+            setCategory(categories[0]);
+        }
+    }, [categories]);
+
+    useEffect(() => {
         const handleClickOutside = (event) => {
             if (modalRef.current && !modalRef.current.contains(event.target) &&
                 dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -73,14 +81,11 @@ const Budget = () => {
             }
         };
 
-        // Attach the event listener
         document.addEventListener('mousedown', handleClickOutside);
-
-        // Cleanup the event listener on component unmount
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+    }, []); // This effect does not depend on `categories`
 
     return (
     <aside className='budget'>
@@ -93,13 +98,13 @@ const Budget = () => {
           {isDropdownVisible && (
               <div ref={modalRef} className="select-modal" style={dropDownStyle}>
                   {/* Dynamically generated modal content with options */}
-                  {budgetCategoriesData.length > 0 ? (
-                      budgetCategoriesData.map((category, index) => (
-                      <div key={index} onClick={() => handleCategoryChange(category)}>{category}</div>
-                    ))
-              ) : (
-              <div>Loading categories...</div> // Or handle the empty state differently
-              )}
+                  {categories.length > 0 ? (
+                      categories.map((category, index) => (
+                        <div key={index} onClick={() => handleCategoryChange(category)}>{category}</div>
+                        ))
+                  ) : (
+                      <div>No categories found.</div> // Or handle the empty state differently
+                  )}
               </div>
           )}
       </header>

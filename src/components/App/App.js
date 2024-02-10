@@ -22,7 +22,7 @@ const App = () => {
 
   // Hardcoded user, will pull from getUser endpoint soon
   const month = "2024-02";
-  const category = "Travel";
+  // const category = "Travel";
   const userName = "Powdered Toast Man";
   const email = "moneybaggins@bigbanktakelilbank.doge"
   localStorage.setItem('email', email);
@@ -31,7 +31,7 @@ const App = () => {
   const { totalExpensesData } = useGetExpenses(email);
   const { transactionsData } = useGetTransactions(email);
   const { cashFlowData } = useGetCashFlow(email);
-  const { budgetsData } = useGetBudgetsByParams(month, category, email);
+  // const { budgetsData } = useGetBudgetsByParams(month, category, email);
 
   useEffect(() => {
     if (totalIncomeData) {
@@ -45,8 +45,8 @@ const App = () => {
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
     if (transactionsData) setTransactions(transactionsData);
     if (cashFlowData) setCashFlow(cashFlowData);
-    if (budgetsData) setBudgets(budgetsData);
-    }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData, budgetsData]);
+    // if (budgetsData) setBudgets(budgetsData);
+    }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData]);
 
   return (
     <main className='app'>
