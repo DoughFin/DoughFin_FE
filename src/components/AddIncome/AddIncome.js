@@ -26,7 +26,7 @@ const AddIncome = ({ totalIncome, setTotalIncome, setTransactions }) => {
   const [date, setDate] = useState("");
 
   // Bilbo's UID
-  const userId = "2"
+  const userId = 3
 
   const { createIncome } = useCreateIncome();
 
@@ -51,7 +51,7 @@ const AddIncome = ({ totalIncome, setTotalIncome, setTransactions }) => {
         id: data.createIncome.id,
         vendor: source,
         date,
-        amount: amountCents,
+        amount: amountCents / 100,
         status: "credited",
       };
   
