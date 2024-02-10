@@ -1,0 +1,69 @@
+.dashboard-totals-container {
+  display: flex;
+  width: 679px;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.add-transx-container {
+  display: flex;
+  padding: 16px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 1 0 0;
+  border-radius: 20px;
+  background: #1D1D41;
+}
+
+.add-transx-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-self: stretch;
+}
+
+.add-transx-button {
+  display: flex;
+  border: none;
+  padding: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 50px;
+  background: #6359E9;
+  cursor: pointer;
+  transition: transform 0.3s ease; 
+}
+
+.add-transx-button:hover {
+  transform: rotate(90deg);
+}
+
+.transx-text-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.transx-text {
+  margin: 0px;
+  color: #8C89B4;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.transx-amount {
+  width: 100px;
+  color: #FFF;
+  margin: 0px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

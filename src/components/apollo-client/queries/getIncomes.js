@@ -16,7 +16,7 @@ export const useGetIncomes = (email) => {
   });
   let totalIncomeData = null;
   if (!loading && data) {
-    totalIncomeData = data?.user?.currentIncomes?.amount?.toFixed(2);
+    totalIncomeData = data?.user?.currentIncomes?.amount;
   }
   return { loading, error, totalIncomeData };
 };

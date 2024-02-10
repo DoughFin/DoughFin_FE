@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import NavBar from '../NavBar/NavBar'
 import Dashboard from '../Dashboard/Dashboard'
-// import cashFlowData from "../sample-data/CashFlowData.json"
+// import cashflowData from "../sample-data/CashFlowData.json"
 // import transactionsFixtureData from "../sample-data/TransactionsData.json"
 // import incomeData from "../sample-data/IncomeData.json"
 // import expensesData from "../sample-data/ExpensesData.json"
@@ -15,20 +15,18 @@ import { useGetBudgetsByParams } from '../apollo-client/queries/getBudgetsByPara
 
 const App = () => {
   const [transactions, setTransactions] = useState([]);
-  const [incomeTransactions, setIncomeTransactions] = useState([]);
-  const [expensesTransactions, setExpensesTransactions] = useState([]);
-  const [totalIncome, setTotalIncome] = useState(null);
-  const [totalExpenses, setTotalExpenses] = useState(null);
+  const [totalIncome, setTotalIncome] = useState(0);
+  const [totalExpenses, setTotalExpenses] = useState(0);
   const [cashFlow, setCashFlow] = useState(null);
   const [budgets, setBudgets] = useState(null);
 
   // Hardcoded user, will pull from getUser endpoint soon
-  const userName = "john_smith";
-  const email = "email@email.com"
+  const month = "2024-02";
+  const category = "Travel";
+  const userName = "Powdered Toast Man";
+  const email = "moneybaggins@bigbanktakelilbank.doge"
   localStorage.setItem('email', email);
-  const month = "2024-02"; 
-  const category = "Travel"; 
-  
+
   const { totalIncomeData } = useGetIncomes(email);
   const { totalExpensesData } = useGetExpenses(email);
   const { transactionsData } = useGetTransactions(email);
@@ -36,19 +34,19 @@ const App = () => {
   const { budgetsData } = useGetBudgetsByParams(month, category, email);
 
   useEffect(() => {
-    if (totalIncomeData) setTotalIncome(totalIncomeData);
+    if (totalIncomeData) {
+      const totalIncomeCents = Math.round(parseFloat(totalIncomeData) * 100);
+      setTotalIncome(totalIncomeCents);
+    }
+    if (totalExpensesData) {
+      const totalExpensesCents = Math.round(parseFloat(totalExpensesData) * 100);
+      setTotalExpenses(totalExpensesCents);
+    }
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
     if (transactionsData) setTransactions(transactionsData);
     if (cashFlowData) setCashFlow(cashFlowData);
     if (budgetsData) setBudgets(budgetsData);
-    }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData, budgetsData]); 
-
-  useEffect(() => {
-    const incomeTransactions = transactions.filter(t => t.status === 'credited');
-    const expenseTransactions = transactions.filter(t => t.status === 'debited');
-    setIncomeTransactions(incomeTransactions);
-    setExpensesTransactions(expenseTransactions);
-  }, [transactions]);
+    }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData, budgetsData]);
 
   return (
     <main className='app'>
@@ -56,14 +54,11 @@ const App = () => {
       <Dashboard
         cashFlow={cashFlow}
         transactions={transactions}
+        setTransactions={setTransactions}
         totalIncome={totalIncome}
         setTotalIncome={setTotalIncome}
         totalExpenses={totalExpenses}
         setTotalExpenses={setTotalExpenses}
-        incomeTransactions={incomeTransactions}
-        setIncomeTransactions={setIncomeTransactions}
-        expensesTransactions={expensesTransactions}
-        setExpensesTransactions={setExpensesTransactions}
       />
     </main>
   )
