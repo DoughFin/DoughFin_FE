@@ -35,11 +35,11 @@ const App = () => {
 
   useEffect(() => {
     if (totalIncomeData) {
-      const totalIncomeCents = Math.round(parseFloat(totalIncomeData) * 100);
+      const totalIncomeCents = totalIncomeData;
       setTotalIncome(totalIncomeCents);
     }
     if (totalExpensesData) {
-      const totalExpensesCents = Math.round(parseFloat(totalExpensesData) * 100);
+      const totalExpensesCents = totalExpensesData;
       setTotalExpenses(totalExpensesCents);
     }
     if (totalExpensesData) setTotalExpenses(totalExpensesData);
