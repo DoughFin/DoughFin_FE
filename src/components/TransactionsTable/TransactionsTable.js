@@ -21,7 +21,7 @@ const TransactionsTable = ({ transactions }) => {
         <td>{titleize(transaction.vendor)}</td>
         <td>{transaction.date}</td>
         <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-        <td style={{ color: statusColor }} className="transactions-status-text">{transaction.status}</td>
+        <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
       </tr>
     );
   });
