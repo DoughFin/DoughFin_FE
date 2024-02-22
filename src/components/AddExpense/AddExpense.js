@@ -43,7 +43,7 @@ const AddExpense = ({ totalExpenses, setTotalExpenses, setTransactions }) => {
           userId, 
           vendor,
           category,
-          amount: amountCents / 100,
+          amount: amountCents,
           date,
         },
       });
