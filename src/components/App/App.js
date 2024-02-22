@@ -20,7 +20,7 @@ const App = () => {
 
   // Hardcoded user, will pull from getUser endpoint soon
   const userName = "Powdered Toast Man";
-  const email = "moneybaggins@bigbanktakelilbank.doge"
+  const email = "email@email.com"
   
   const { totalIncomeData } = useGetIncomes(email);
   const { totalExpensesData } = useGetExpenses(email);
