@@ -9,8 +9,12 @@ const TransactionsTable = ({ transactions }) => {
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   };
+
+  const sortedTransactions = transactions
+  ? [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
+  : [];
   
-  const transactionEntries = transactions && transactions.map((transaction) => {
+  const transactionEntries = sortedTransactions.map((transaction) => {
     let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
     return (
       <tr className="transactions-tr" key={transaction.id}>
