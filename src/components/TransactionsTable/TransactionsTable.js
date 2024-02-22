@@ -2,11 +2,19 @@ import React from "react";
 import "./TransactionsTable.css";
 
 const TransactionsTable = ({ transactions }) => {
+  const titleize = (sentence) => {
+    return sentence
+      .toLowerCase()
+      .split(' ')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+  
   const transactionEntries = transactions && transactions.map((transaction) => {
     let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
     return (
       <tr className="transactions-tr" key={transaction.id}>
-        <td>{transaction.vendor}</td>
+        <td>{titleize(transaction.vendor)}</td>
         <td>{transaction.date}</td>
         <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
         <td style={{ color: statusColor }} className="transactions-status-text">{transaction.status}</td>
