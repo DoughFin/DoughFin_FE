@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 
+const sortMonths = (a, b) => {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return months.indexOf(a.month.slice(0, 3)) - months.indexOf(b.month.slice(0, 3));
+};
 
 export default function BasicBars({ cashFlow }) {
-  const xAxisData = cashFlow ? cashFlow.map(item => item.month.slice(0, 3)) : [];
-  const incomeData = cashFlow ? cashFlow.map(item => item.totalIncome) : [];
-  const expenseData = cashFlow ? cashFlow.map(item => item.totalExpense) : [];
+  const sortedCashFlow = cashFlow ? [...cashFlow].sort(sortMonths) : [];
+
+  const xAxisData = sortedCashFlow ? sortedCashFlow.map(item => item.month.slice(0, 3)) : [];
+  const incomeData = sortedCashFlow ? sortedCashFlow.map(item => item.totalIncome / 100) : [];
+  const expenseData = sortedCashFlow ? sortedCashFlow.map(item => item.totalExpense / 100) : [];
 
   let series = []
 
