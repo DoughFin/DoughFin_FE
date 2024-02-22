@@ -51,7 +51,7 @@ const AddIncome = ({ totalIncome, setTotalIncome, setTransactions }) => {
         id: data.createIncome.id,
         vendor: source,
         date,
-        amount: amountCents / 100,
+        amount: amountCents,
         status: "credited",
       };
   
