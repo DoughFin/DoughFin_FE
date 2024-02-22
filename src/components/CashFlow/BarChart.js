@@ -10,9 +10,9 @@ export default function BasicBars({ cashFlow }) {
   const sortedCashFlow = cashFlow ? [...cashFlow].sort(sortMonths) : [];
 
   const xAxisData = sortedCashFlow ? sortedCashFlow.map(item => item.month.slice(0, 3)) : [];
-  const incomeData = sortedCashFlow ? sortedCashFlow.map(item => item.totalIncome / 100) : [];
-  const expenseData = sortedCashFlow ? sortedCashFlow.map(item => item.totalExpense / 100) : [];
-
+  const incomeData = sortedCashFlow ? sortedCashFlow.map(item => parseFloat((item.totalIncome / 100).toFixed(2))) : [];
+  const expenseData = sortedCashFlow ? sortedCashFlow.map(item => parseFloat((item.totalExpense / 100).toFixed(2))) : [];
+  
   let series = []
 
   if (cashFlow) {
