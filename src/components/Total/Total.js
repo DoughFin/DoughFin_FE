@@ -38,7 +38,7 @@ const Total = ({
     e.preventDefault();
 
     const newTransaction = {
-      id: Date.now(),
+      id: Date.now(), 
       vendor: name,
       date: date,
       amount: parseFloat(amount),
