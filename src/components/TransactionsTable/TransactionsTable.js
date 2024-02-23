@@ -13,27 +13,18 @@ const TransactionsTable = ({ transactions }) => {
   const sortedTransactions = transactions
   ? [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
   : [];
-
-const uniqueTransactions = new Set();
-sortedTransactions.forEach(transaction => {
-  uniqueTransactions.add(transaction.id);
-});
-
-const transactionEntries = [...uniqueTransactions].map(transactionId => {
-  const transaction = sortedTransactions.find(transaction => transaction.id === transactionId);
-  if (!transaction) return null;
   
-  let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
-  return (
-    <tr className="transactions-tr" key={transaction.id}>
-      <td>{titleize(transaction.vendor)}</td>
-      <td>{transaction.date}</td>
-      <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
-      <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
-    </tr>
-  );
-});
-
+  const transactionEntries = sortedTransactions.map((transaction) => {
+    let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
+    return (
+      <tr className="transactions-tr" key={transaction.id}>
+        <td>{titleize(transaction.vendor)}</td>
+        <td>{transaction.date}</td>
+        <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
+        <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
+      </tr>
+    );
+  });
   
   return (
     <section className="transactions">
