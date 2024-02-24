@@ -98,7 +98,7 @@ const Budget = () => {
   return (
   <aside className='budget'>
     <header className='budget-header'>
-      <h2>{titleize(category)}</h2>
+    <h2>{category && titleize(category)}</h2>
         <div ref={dropdownRef} onClick={toggleDropdownVisibility}>
             <img className='budget-dropdown-button' src={DropDownIcon} alt='dropdown icon'  />
         </div>
