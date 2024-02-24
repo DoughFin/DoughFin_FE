@@ -119,8 +119,8 @@ const Budget = () => {
       <summary className='budget-pie-chart'>
           <BasicPie
               data={[
-                { id: 0, value: (100 - pctRemaining) },
-                { id: 1, value: pctRemaining < 0 ? 0 : pctRemaining},
+                { id: 0, value: (100 - pctRemaining), color: '#64CFF6' },
+                { id: 1, value: pctRemaining < 0 ? 0 : pctRemaining, color: '#6359E9'},
               ]}
           />
       </summary>
