@@ -119,8 +119,8 @@ const Budget = () => {
       <summary className='budget-pie-chart'>
           <BasicPie
               data={[
-                  { id: 0, value: (100 - pctRemaining) },
-                  { id: 1, value: pctRemaining },
+                { id: 0, value: (100 - pctRemaining) > 100 ? 100 : (100 - pctRemaining) },
+                { id: 1, value: pctRemaining < 0 ? 0 : pctRemaining },
               ]}
           />
       </summary>
@@ -144,13 +144,13 @@ const Budget = () => {
       <div className='budget-details'>
         <h3 className='budget-details-h3'>Budgeted Amount</h3>
         <div className='budget-details-flex'>
-          <p className='budget-details-amount'>${amount}</p>
+          <p className='budget-details-amount'>${(amount / 100).toFixed(2)}</p>
         </div>
       </div>
       <div className='budget-details'>
         <h3 className='budget-details-h3'>Remaining Budget</h3>
         <div className='budget-details-flex'>
-          <p className='budget-details-amount'>${amountRemaining}</p>
+          <p className='budget-details-amount'>${(amountRemaining / 100).toFixed(2)}</p>
         </div>
       </div>
     </section>
