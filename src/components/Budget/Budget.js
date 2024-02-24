@@ -149,9 +149,15 @@ const Budget = () => {
       </div>
       <div className='budget-details'>
         <h3 className='budget-details-h3'>Remaining Budget</h3>
-        <div className='budget-details-flex'>
-          <p className='budget-details-amount'>${(amountRemaining / 100).toFixed(2)}</p>
-        </div>
+        {(amountRemaining / 100).toFixed(2) < 0 ? (
+          <div className='budget-details-flex-neg'>
+            <p className='budget-details-amount-neg'>${(amountRemaining / 100).toFixed(2)}</p>
+          </div>
+          ) : (
+            <div className='budget-details-flex'>
+            <p className='budget-details-amount'>${(amountRemaining / 100).toFixed(2)}</p>
+          </div>
+        )}
       </div>
     </section>
     <section className='budget-categories-container'>
