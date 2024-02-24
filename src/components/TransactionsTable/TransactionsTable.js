@@ -35,7 +35,7 @@ const TransactionsTable = ({ transactions }) => {
             <input
               className="searchbar-text"
               type="text"
-              placeholder="Search..."
+              placeholder="Search"
             />
             <button className="searchbar-button"></button>
           </div>
