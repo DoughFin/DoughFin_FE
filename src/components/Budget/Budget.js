@@ -31,7 +31,7 @@ const Budget = () => {
       console.error("Error fetching data:", error);
   }
   console.log("Fetched budgetData:", budgetsData);
-  const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
+  const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) < 0 ? 0 : Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
   const amount = budgetsData?.budgets[0]?.amount || 'Loading...';
   const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
 
@@ -119,8 +119,8 @@ const Budget = () => {
       <summary className='budget-pie-chart'>
           <BasicPie
               data={[
-                { id: 0, value: (100 - pctRemaining) > 100 ? 100 : (100 - pctRemaining) },
-                { id: 1, value: pctRemaining < 0 ? 0 : pctRemaining },
+                { id: 0, value: (100 - pctRemaining) },
+                { id: 1, value: pctRemaining < 0 ? 0 : pctRemaining},
               ]}
           />
       </summary>
