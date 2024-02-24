@@ -151,7 +151,7 @@ const Budget = () => {
         <h3 className='budget-details-h3'>Remaining Budget</h3>
         {(amountRemaining / 100).toFixed(2) < 0 ? (
           <div className='budget-details-flex-neg'>
-            <p className='budget-details-amount-neg'>${(amountRemaining / 100).toFixed(2)}</p>
+            <p className='budget-details-amount-neg'>-${Math.abs(amountRemaining / 100).toFixed(2)}</p>
           </div>
           ) : (
             <div className='budget-details-flex'>
