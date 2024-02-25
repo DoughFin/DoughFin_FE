@@ -23,10 +23,10 @@ const AddExpense = ({ totalExpenses, setTotalExpenses, setTransactions }) => {
   const [open, setOpen] = useState(false);
   const [vendor, setVendor] = useState("");
   const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
   // Bilbo's UID
-  const userId = "1"
+  const userId = 3
 
   const { createExpense } = useCreateExpense();
 

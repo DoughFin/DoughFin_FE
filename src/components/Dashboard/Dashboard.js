@@ -14,6 +14,11 @@ const Dashboard = ({
   setTotalIncome,
   totalExpenses,
   setTotalExpenses,
+  incomeTransactions,
+  setIncomeTransactions,
+  expensesTransactions,
+  setExpensesTransactions,
+  budgets
 }) => {
 
   

@@ -123,9 +123,29 @@
   background: rgba(2, 177, 90, 0.15);
 }
 
+.budget-details-flex-neg {
+  display: flex;
+  width: 80px;
+  padding: 2px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: rgba(177, 2, 2, 0.15);
+}
+
 .budget-details-amount {
   margin: 0px;
   color: #02B15A;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.budget-details-amount-neg {
+  margin: 0px;
+  color: #da1717;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
