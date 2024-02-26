@@ -4,6 +4,7 @@ import "./TransactionsTable.css";
 
 const TransactionsTable = ({ transactions }) => {
   const [searchTerm, setSearchTerm] = useState("");
+ // uses a state which can be updated to find matching values for the search term
 
   const titleize = (sentence) => {
     return sentence
@@ -17,7 +18,7 @@ const TransactionsTable = ({ transactions }) => {
     const transactionValues = Object.values(transaction).join("").toLowerCase();
     return transactionValues.includes(searchTerm.toLowerCase());
   });
-
+ // checks if the search term, when lowercased, matches ANY of the values within the transactions table
   const sortedTransactions = searchedTransactions.sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );
@@ -42,7 +43,7 @@ const transactionEntries = sortedTransactions.map((transaction) => {
 const handleSearch = (event) => {
   setSearchTerm(event.target.value);
 };
-
+ // holds the function to set the search term state when the event is called
   return (
     <section className="transactions">
       <header className="transactions-header">
