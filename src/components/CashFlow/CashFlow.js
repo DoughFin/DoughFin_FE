@@ -12,11 +12,11 @@ const CashFlow = ({ cashFlow }) => {
         <h1 className='cashflow-h1'>Cash Flow</h1>
         <div className='cashflow-header-income'>
           <img src={EllipsePurple} alt='purple ellipse' />
-          <p className='cashflow-header-text'>Income</p>
+          <p className='cashflow-header-text'>Incomes</p>
         </div>
         <div className='cashflow-header-income'>
           <img src={EllipseBlue} alt='purple ellipse' />
-          <p className='cashflow-header-text'>Expense</p>
+          <p className='cashflow-header-text'>Expenses</p>
         </div>
         <BasicSelect />
       </header>
