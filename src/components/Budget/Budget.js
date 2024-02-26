@@ -31,9 +31,9 @@ const Budget = () => {
       console.error("Error fetching data:", error);
   }
   console.log("Fetched budgetData:", budgetsData);
-  const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) < 0 ? 0 : Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
+  const pctRemaining = Math.round(budgetsData?.budgets[0]?.pctRemaining) <= 0 ? 0 : Math.round(budgetsData?.budgets[0]?.pctRemaining) || 'Loading...';
   const amount = budgetsData?.budgets[0]?.amount || 'Loading...';
-  const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
+  const amountRemaining = Math.round(budgetsData?.budgets[0]?.amountRemaining) === 0 ? 0 : Math.round(budgetsData?.budgets[0]?.amountRemaining) || 'Loading...';
 
   // State to manage dropdown visibility
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);

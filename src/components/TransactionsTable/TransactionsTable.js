@@ -13,19 +13,24 @@ const TransactionsTable = ({ transactions }) => {
   const sortedTransactions = transactions
   ? [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
   : [];
-  
-  const transactionEntries = sortedTransactions.map((transaction) => {
+
+const uniqueTransactions = [];
+const transactionEntries = sortedTransactions.map((transaction) => {
+  if (!uniqueTransactions.some((t) => t.id === transaction.id)) {
+    uniqueTransactions.push(transaction);
     let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
     return (
       <tr className="transactions-tr" key={transaction.id}>
         <td>{titleize(transaction.vendor)}</td>
+        <td>{titleize(transaction.category || "Income")}</td>
         <td>{transaction.date}</td>
         <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
         <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
       </tr>
     );
-  });
-  
+  }
+});
+
   return (
     <section className="transactions">
       <header className="transactions-header">
@@ -46,6 +51,7 @@ const TransactionsTable = ({ transactions }) => {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Category</th>
               <th>Date</th>
               <th>Amount</th>
               <th>Status</th>
