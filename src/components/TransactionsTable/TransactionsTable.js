@@ -13,8 +13,11 @@ const TransactionsTable = ({ transactions }) => {
   const sortedTransactions = transactions
   ? [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
   : [];
-  
-  const transactionEntries = sortedTransactions.map((transaction) => {
+
+const uniqueTransactions = [];
+const transactionEntries = sortedTransactions.map((transaction) => {
+  if (!uniqueTransactions.some((t) => t.id === transaction.id)) {
+    uniqueTransactions.push(transaction);
     let statusColor = transaction.status === 'credited' ? '#02B15A' : '#E41414';
     return (
       <tr className="transactions-tr" key={transaction.id}>
@@ -25,8 +28,9 @@ const TransactionsTable = ({ transactions }) => {
         <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
       </tr>
     );
-  });
-  
+  }
+});
+
   return (
     <section className="transactions">
       <header className="transactions-header">
