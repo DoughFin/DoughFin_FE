@@ -8,7 +8,7 @@
   border-radius: 30px;
   background: #1D1D41;
   /* Set explicit dimensions for the transactions container */
-  width: 700px; /* Example width */
+  width: 675px; /* Example width */
   height: 230px; /* Example height */
   overflow: hidden; /* Ensures that content doesn't overflow the container's bounds */
 }
