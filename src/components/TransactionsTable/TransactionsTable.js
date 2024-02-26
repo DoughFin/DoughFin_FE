@@ -19,6 +19,7 @@ const TransactionsTable = ({ transactions }) => {
     return (
       <tr className="transactions-tr" key={transaction.id}>
         <td>{titleize(transaction.vendor)}</td>
+        <td>{titleize(transaction.category)}</td>
         <td>{transaction.date}</td>
         <td>{(transaction.amount / 100).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</td>
         <td style={{ color: statusColor }} className="transactions-status-text">{titleize(transaction.status)}</td>
@@ -46,6 +47,7 @@ const TransactionsTable = ({ transactions }) => {
           <thead>
             <tr>
               <th>Name</th>
+              <th>Category</th>
               <th>Date</th>
               <th>Amount</th>
               <th>Status</th>

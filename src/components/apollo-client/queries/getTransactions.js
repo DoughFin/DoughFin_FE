@@ -8,6 +8,7 @@ query getTransactions($email: String!) {
           id
           amount
           date
+          category
           vendor
           status
       }
