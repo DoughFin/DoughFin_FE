@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "./TransactionsTable.css";
 
 const TransactionsTable = ({ transactions }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   const titleize = (sentence) => {
     return sentence
       .toLowerCase()
@@ -10,9 +13,14 @@ const TransactionsTable = ({ transactions }) => {
       .join(' ');
   };
 
-  const sortedTransactions = transactions
-  ? [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date))
-  : [];
+  const searchedTransactions = transactions.filter((transaction) => {
+    const transactionValues = Object.values(transaction).join("").toLowerCase();
+    return transactionValues.includes(searchTerm.toLowerCase());
+  });
+
+  const sortedTransactions = searchedTransactions.sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
 
 const uniqueTransactions = [];
 const transactionEntries = sortedTransactions.map((transaction) => {
@@ -31,6 +39,10 @@ const transactionEntries = sortedTransactions.map((transaction) => {
   }
 });
 
+const handleSearch = (event) => {
+  setSearchTerm(event.target.value);
+};
+
   return (
     <section className="transactions">
       <header className="transactions-header">
@@ -41,6 +53,8 @@ const transactionEntries = sortedTransactions.map((transaction) => {
               className="searchbar-text"
               type="text"
               placeholder="Search"
+              value={searchTerm}
+              onChange={handleSearch}
             />
             <button className="searchbar-button"></button>
           </div>
