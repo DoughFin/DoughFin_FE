@@ -59,12 +59,12 @@ const App = () => {
 
   return (
     <ThemeContext.Provider value={{ theme,toggleTheme }}>
+      <main className='app' id={theme}>
+        <NavBar userName={userName} />
       <div className = "switch">
         <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
         <ReactSwitch onChange={toggleTheme} checked={theme == "dark"}/>
       </div>
-      <main className='app' id={theme}>
-        <NavBar userName={userName} />
         <Dashboard
           cashFlow={cashFlow}
           transactions={transactions}
