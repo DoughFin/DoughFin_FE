@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactSwitch from "react-switch";
 import './NavBar.css'
 import UserPic from '../../assets/icons/user-icon.png'
 import BarIcon from '../../assets/icons/bar-icon.svg'
@@ -7,7 +8,7 @@ import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
 
-const NavBar = ({userName}) => {
+const NavBar = ({userName, onToggle, theme}) => {
   return (
     <nav className='navbar'>
       <aside className='nav-button-container'>
@@ -38,6 +39,10 @@ const NavBar = ({userName}) => {
       <section className='user-icon'>
         <img src={UserPic} alt='user icon' />
         <p className='user-details'>{userName}</p>
+      <div className = "switch">
+        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
+        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
+      </div>
       </section>
     </nav>
   )

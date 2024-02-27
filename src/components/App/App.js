@@ -13,7 +13,6 @@ import { useGetTransactions } from '../apollo-client/queries/getTransactions';
 import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
 import { useGetBudgetsByParams } from '../apollo-client/queries/getBudgetsByParams';
 import { createContext } from "react";
-import ReactSwitch from "react-switch";
 
 export const ThemeContext = createContext("null");
 
@@ -58,13 +57,9 @@ const App = () => {
   }
 
   return (
-    <ThemeContext.Provider value={{ theme,toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <main className='app' id={theme}>
-        <NavBar userName={userName} />
-      <div className = "switch">
-        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
-        <ReactSwitch onChange={toggleTheme} checked={theme == "dark"}/>
-      </div>
+        <NavBar userName={userName} onToggle={toggleTheme} theme={theme} />
         <Dashboard
           cashFlow={cashFlow}
           transactions={transactions}
