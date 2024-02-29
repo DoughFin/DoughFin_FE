@@ -34,15 +34,15 @@ const NavBar = ({userName, onToggle, theme}) => {
             <p className='navbar-button-text'>Settings</p>
           </button>
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
+      <div className = "switch">
+        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
+        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
+      </div>
         </section>
       </aside>
       <section className='user-icon'>
         <img src={UserPic} alt='user icon' />
         <p className='user-details'>{userName}</p>
-      <div className = "switch">
-        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
-        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
-      </div>
       </section>
     </nav>
   )

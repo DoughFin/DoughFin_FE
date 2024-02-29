@@ -11,7 +11,7 @@ DoughFin is a user-friendly financial management app designed to help individual
 **Budget Creation:** Set up personalized budgets to control your spending and achieve your financial goals.<br>
 **Insightful Reports:** Get detailed reports and insights into your financial health, helping you make better financial decisions.<br>
 **Secure Account Linking:** Safely link your bank account(s) for real-time transaction updates.
-**Light & Dark Mode** Use the toggle at the bottom left hand corner of your screen to toggle between light and dark mode!
+**Light & Dark Mode** Use the toggle on the left hand navbar to toggle between light and dark mode!
 
 ### Setup & Installation
 
