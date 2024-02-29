@@ -3,7 +3,7 @@ import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
   uri: "https://doughfin-be-q7yq.onrender.comgraphql",
-  uri: "http://localhost:3000/graphql"
+  // uri: "http://localhost:3000/graphql"
 });
 
 const customHeaders = setContext((_, { headers }) => {
