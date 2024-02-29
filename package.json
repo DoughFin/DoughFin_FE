@@ -46,7 +46,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://doughfin-be.onrender.com",
+  "proxy": "https://doughfin-be-q7yq.onrender.com",
   "devDependencies": {
     "cypress": "^13.6.4"
   }
