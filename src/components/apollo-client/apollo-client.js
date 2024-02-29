@@ -2,7 +2,7 @@ import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
-  uri: "https://doughfin-be-q7yq.onrender.comgraphql",
+  uri: "https://doughfin-be-q7yq.onrender.com/graphql",
   // uri: "http://localhost:3000/graphql"
 });
 
