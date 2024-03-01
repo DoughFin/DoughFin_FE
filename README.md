@@ -3,7 +3,7 @@
 ## Introduction
 DoughFin is a user-friendly financial management app designed to help individuals effortlessly track their income, categorize expenses, and create budgets. With DoughFin, managing your finances becomes intuitive, empowering you to make informed decisions about your money.
 
-![alt text](<Screen Shot 2024-02-29 at 2.20.26 PM.png>)
+![alt text](<Screen Shot 2024-02-29 at 5.49.11 PM.png>)
 
 ## Features
 **Income Tracking:** Automatically track your income from various sources to see how much you're earning.<br>
