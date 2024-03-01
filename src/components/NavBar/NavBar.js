@@ -7,7 +7,14 @@ import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
 
+
 const NavBar = ({userName}) => {
+  //Function for handling CSV Export
+  const handleExport = () => {
+    window.location.href = 'http://localhost:3000/users/export'; 
+    /* Needs to be changed when deploying */
+  };
+
   return (
     <nav className='navbar'>
       <aside className='nav-button-container'>
@@ -31,6 +38,11 @@ const NavBar = ({userName}) => {
           <button className='navbar-button disabled'>
             <img src={SettingsIcon} alt='Settings icon' />
             <p className='navbar-button-text'>Settings</p>
+          </button>
+          <button className='navbar-button' onClick={handleExport}>
+            {/* Need to find a new Icon for Export */}
+            <img src={SettingsIcon} alt='Export icon' />
+            <p className='navbar-button-text'>Export CSV</p>
           </button>
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
         </section>
