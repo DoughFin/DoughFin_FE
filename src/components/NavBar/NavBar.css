@@ -102,6 +102,27 @@
 }
 
 .bottom-switch {
-  margin: 30px;  
-  margin-right: 30px; 
+  margin: 30px;
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start;
+}
+
+.switch-label-dark {
+  display: flex;
+  align-items: center; /* This ensures vertical centering */
+  gap: 10px; /* Adjust spacing between switch and text */
+  color: #FFF;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.switch-label-light {
+  display: flex;
+  align-items: center; /* This ensures vertical centering */
+  gap: 10px; /* Adjust spacing between switch and text */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
 }

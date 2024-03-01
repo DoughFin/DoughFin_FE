@@ -1,5 +1,6 @@
 import React from 'react'
-import ReactSwitch from "react-switch";
+import { Switch } from '@mui/material';
+
 import './NavBar.css'
 import UserPic from '../../assets/icons/user-icon.png'
 import BarIcon from '../../assets/icons/bar-icon.svg'
@@ -8,8 +9,6 @@ import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
 import ExportIcon from '../../assets/icons/export-icon.svg'
-import SwitchIcon from '../../assets/icons/switch-icon.svg'
-
 
 const NavBar = ({userName, onToggle, theme}) => {
   //Function for handling CSV Export
@@ -57,19 +56,22 @@ const NavBar = ({userName, onToggle, theme}) => {
       </aside>
 
       <section className='bottom-section'>
-        <div className='bottom-switch'>
-          <img src={SwitchIcon} alt='bar icon' />
-          <p className='navbar-button-text'>
-            <label> 
-              {theme == "light" ? "Light Mode" : "Dark Mode"}
-              <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
-              </label>
-          </p>
-        </div>
-
         <div className='user-icon'>
           <img src={UserPic} alt='user icon' />
           <p className='user-details'>{userName}</p>
+        </div>
+
+        <div className='bottom-switch'>
+          <label className={theme === "dark" ? "switch-label-dark" : "switch-label-light"}>
+            {/* <ReactSwitch onChange={onToggle} checked={theme === "dark"}/> */}
+            <Switch
+              checked={theme === "dark"}
+              onChange={onToggle}
+              name="themeSwitch"
+            />
+
+            {theme === "light" ? "Light Mode" : "Dark Mode"}
+          </label>
         </div>
       </section>
     </nav>
