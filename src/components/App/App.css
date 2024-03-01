@@ -7,3 +7,129 @@
   background: #141332;
   overflow: hidden;
 }
+
+/* Light mode settings */
+#light .app {
+  background-color: #fafafa
+}
+#light .navbar {
+  background-color: #fafafa
+}
+#light .cashflow {
+  background-color: #fafafa
+}
+#light .add-transx-container {
+  background-color: #fafafa
+}
+#light .transactions {
+  background-color: #fafafa
+}
+#light .transactions-table-container {
+  background-color: #fafafa
+}
+#light .table-scroll {
+  background-color: #fafafa
+}
+#light .budget {
+  background-color: #fafafa
+}
+#light .budget-header {
+  background-color: #fafafa
+}
+#light .budget-pie-chart {
+  background-color: #fafafa
+}
+#light .budget-percentage-breakdown {
+  background-color: #fafafa
+}
+#light .logo-text {
+  color: #141332
+}
+#light .user-details {
+  color: #141332
+}
+#light .cashflow-h1 {
+  color: #141332
+}
+#light .cashflow-header-text {
+  color: #141332
+}
+#light .transx-text {
+  color: #141332
+}
+#light .transx-amount {
+  color: #141332
+}
+#light .transactions-h1 {
+  color: #141332
+}
+#light .transactions-tr {
+  color: #141332
+}
+#light .budget-header {
+  color: #141332
+}
+#light .percentage-description {
+  color: #141332
+}
+#light .percentage {
+  color: #141332
+}
+#light .budget-details-h3 {
+  color: #141332
+}
+#light .budget-categories-h3 {
+  color: #141332
+}
+#light {
+  background-color:#8AAAE5
+}
+
+/* Dark Mode Settings */
+#dark .app {
+  background-color: #141332
+}
+#dark .navbar {
+  background-color: #141332
+}
+#dark .cashflow {
+  background-color: #141332
+}
+#dark .dashboard-totals-container {
+  background-color: #141332
+}
+#dark .transactions {
+  background-color: #141332
+}
+#dark .transactions-table-container {
+  background-color: #141332
+}
+#dark .table-scroll {
+  background-color: #141332
+}
+#dark .budget {
+  background-color: #141332
+}
+#dark .budget-header {
+  background-color: #141332
+}
+#dark .budget-pie-chart {
+  background-color: #141332
+}
+#dark .budget-percentage-breakdown {
+  background-color: #141332
+}
+#dark {
+  background-color:#141332
+}
+
+/* Switch label */
+.switch{
+  margin: 10px;
+}
+#light .switch label{
+  color: black; 
+}
+#dark .switch label{
+  color: white; 
+}
