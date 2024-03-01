@@ -9,40 +9,43 @@
 }
 
 /* Light mode settings */
+
 #light .app {
   background-color: #fafafa
 }
-
+#light .basic-select-fieldset {
+  border-color: #d1d1d7; /* Example border color for light theme */
+}
+#light .basic-select-label {
+  color: #333; /* Example label color for light theme */
+}
+#light .basic-select-select {
+  color: #000; /* Example text color for light theme */
+  background-color: #fafafa; /* Example background color for light theme */
+}
 #light .transactions-header, #light .transactions-h1 {
   color: #000; /* Example text color for light mode */
 }
-
 #light .transactions-table-container tr:hover {
   background-color: #8aaae556;
 }
-
 #light .transactions-searchbar-container {
   background-color: #fff; /* Example background color for light mode */
   border: 1px solid #d1d1d7; /* Example border color for light mode */
 }
-
 #light .searchbar-text {
   color: #333; /* Example text color for light mode */
 }
-
 #light .transactions-table-container th {
   background-color: #8aaae5c4; /* Example header background color for light mode */
   color: #000; /* Example header text color for light mode */
 }
-
 #light .budget-dropdown-button {
   border: 1px solid #d1d1d7;
 }
-
 #light .navbar-button {
   background-color: #29519be3
 }
-
 #light .navbar {
   background-color: #fafafa
 }
@@ -152,6 +155,14 @@
 }
 #dark {
   background-color:#141332
+}
+
+#dark .basic-select-label {
+  color: #8C89B4; /* Adjusted for dark theme */
+}
+#dark .basic-select-select {
+  color: #FFF; /* Adjusted for dark theme */
+  background-color: #1D1D41; /* Adjusted for dark theme */
 }
 
 /* Switch label */
