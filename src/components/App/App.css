@@ -49,6 +49,9 @@
 #light .navbar {
   background-color: #fafafa
 }
+#light .navbar-button:hover {
+  background: #2d299be3;
+}
 #light .cashflow {
   background-color: #fafafa
 }
