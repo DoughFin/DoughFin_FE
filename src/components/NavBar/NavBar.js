@@ -56,16 +56,16 @@ const NavBar = ({userName, onToggle, theme}) => {
         </section>
       </aside>
 
-      <section className='user-section'>
-        <button className='navbar-button'>
-            <img src={SwitchIcon} alt='bar icon' />
-            <p className='navbar-button-text'>
-              <label> 
-                {theme == "light" ? "Light Mode" : "Dark Mode"}
-                <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
-                </label>
-            </p>
-        </button>
+      <section className='bottom-section'>
+        <div className='bottom-switch'>
+          <img src={SwitchIcon} alt='bar icon' />
+          <p className='navbar-button-text'>
+            <label> 
+              {theme == "light" ? "Light Mode" : "Dark Mode"}
+              <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
+              </label>
+          </p>
+        </div>
 
         <div className='user-icon'>
           <img src={UserPic} alt='user icon' />
