@@ -1,5 +1,6 @@
 import React from 'react'
-import ReactSwitch from "react-switch";
+import { Switch } from '@mui/material';
+
 import './NavBar.css'
 import UserPic from '../../assets/icons/user-icon.png'
 import BarIcon from '../../assets/icons/bar-icon.svg'
@@ -7,8 +8,14 @@ import DoughfinLogo from '../../assets/icons/doughfin.svg'
 import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
+import ExportIcon from '../../assets/icons/export-icon.svg'
 
 const NavBar = ({userName, onToggle, theme}) => {
+  //Function for handling CSV Export
+  const handleExport = () => {
+    window.location.href = 'https://dough-fin-fe-deploy.vercel.app/users/export'; 
+  };
+
   return (
     <nav className='navbar'>
       <aside className='nav-button-container'>
@@ -17,32 +24,54 @@ const NavBar = ({userName, onToggle, theme}) => {
             <img src={DoughfinLogo} alt='bar icon' />
             <p className='logo-text'>doughfin</p>
           </div>
+
           <button className='navbar-button'>
             <img src={GridIcon} alt='bar icon' />
             <p className='navbar-button-text'>Dashboard</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={BarIcon} alt='Activity icon' />
             <p className='navbar-button-text'>Activity</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={UserIcon} alt='Accounts icon' />
             <p className='navbar-button-text'>Accounts</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={SettingsIcon} alt='Settings icon' />
             <p className='navbar-button-text'>Settings</p>
           </button>
+
+          <button className='navbar-button' onClick={handleExport}>
+            <img src={ExportIcon} alt='Export icon' />
+            <p className='navbar-button-text'>Export CSV</p>
+          </button>
+
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
-      <div className = "switch">
-        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
-        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
-      </div>
         </section>
       </aside>
-      <section className='user-icon'>
-        <img src={UserPic} alt='user icon' />
-        <p className='user-details'>{userName}</p>
+
+      <section className='bottom-section'>
+        <div className='user-icon'>
+          <img src={UserPic} alt='user icon' />
+          <p className='user-details'>{userName}</p>
+        </div>
+
+        <div className='bottom-switch'>
+          <label className={theme === "dark" ? "switch-label-dark" : "switch-label-light"}>
+            {/* <ReactSwitch onChange={onToggle} checked={theme === "dark"}/> */}
+            <Switch
+              checked={theme === "dark"}
+              onChange={onToggle}
+              name="themeSwitch"
+            />
+
+            {theme === "light" ? "Light Mode" : "Dark Mode"}
+          </label>
+        </div>
       </section>
     </nav>
   )
