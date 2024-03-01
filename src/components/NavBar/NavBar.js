@@ -8,6 +8,7 @@ import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
 import ExportIcon from '../../assets/icons/export-icon.svg'
+import SwitchIcon from '../../assets/icons/switch-icon.svg'
 
 
 const NavBar = ({userName, onToggle, theme}) => {
@@ -25,36 +26,51 @@ const NavBar = ({userName, onToggle, theme}) => {
             <img src={DoughfinLogo} alt='bar icon' />
             <p className='logo-text'>doughfin</p>
           </div>
+
           <button className='navbar-button'>
             <img src={GridIcon} alt='bar icon' />
             <p className='navbar-button-text'>Dashboard</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={BarIcon} alt='Activity icon' />
             <p className='navbar-button-text'>Activity</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={UserIcon} alt='Accounts icon' />
             <p className='navbar-button-text'>Accounts</p>
           </button>
+
           <button className='navbar-button disabled'>
             <img src={SettingsIcon} alt='Settings icon' />
             <p className='navbar-button-text'>Settings</p>
           </button>
+
           <button className='navbar-button' onClick={handleExport}>
             <img src={ExportIcon} alt='Export icon' />
             <p className='navbar-button-text'>Export CSV</p>
           </button>
+
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
-      <div className = "switch">
-        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
-        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
-      </div>
         </section>
       </aside>
-      <section className='user-icon'>
-        <img src={UserPic} alt='user icon' />
-        <p className='user-details'>{userName}</p>
+
+      <section className='user-section'>
+        <button className='navbar-button'>
+            <img src={SwitchIcon} alt='bar icon' />
+            <p className='navbar-button-text'>
+              <label> 
+                {theme == "light" ? "Light Mode" : "Dark Mode"}
+                <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
+                </label>
+            </p>
+        </button>
+
+        <div className='user-icon'>
+          <img src={UserPic} alt='user icon' />
+          <p className='user-details'>{userName}</p>
+        </div>
       </section>
     </nav>
   )
