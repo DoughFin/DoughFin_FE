@@ -6,6 +6,7 @@ import DoughfinLogo from '../../assets/icons/doughfin.svg'
 import GridIcon from '../../assets/icons/grid-icon.svg'
 import SettingsIcon from '../../assets/icons/settings-icon.svg'
 import UserIcon from '../../assets/icons/user-icon.svg'
+import ExportIcon from '../../assets/icons/export-icon.svg'
 
 
 const NavBar = ({userName}) => {
@@ -40,8 +41,7 @@ const NavBar = ({userName}) => {
             <p className='navbar-button-text'>Settings</p>
           </button>
           <button className='navbar-button' onClick={handleExport}>
-            {/* Need to find a new Icon for Export */}
-            <img src={SettingsIcon} alt='Export icon' />
+            <img src={ExportIcon} alt='Export icon' />
             <p className='navbar-button-text'>Export CSV</p>
           </button>
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
