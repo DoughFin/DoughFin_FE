@@ -12,6 +12,9 @@ import { useGetExpenses } from '../apollo-client/queries/getExpenses';
 import { useGetTransactions } from '../apollo-client/queries/getTransactions';
 import { useGetCashFlow } from '../apollo-client/queries/getCashFlow';
 import { useGetBudgetsByParams } from '../apollo-client/queries/getBudgetsByParams';
+import { createContext } from "react";
+
+export const ThemeContext = createContext("null");
 
 const App = () => {
   const [transactions, setTransactions] = useState([]);
@@ -48,19 +51,26 @@ const App = () => {
     // if (budgetsData) setBudgets(budgetsData);
     }, [totalIncomeData, totalExpensesData, transactionsData, cashFlowData]);
 
+  const [theme, setTheme] = useState("dark")
+  const toggleTheme = () => {
+    setTheme((curr) => (curr == "light" ? "dark" : "light"));
+  }
+
   return (
-    <main className='app'>
-      <NavBar userName={userName} />
-      <Dashboard
-        cashFlow={cashFlow}
-        transactions={transactions}
-        setTransactions={setTransactions}
-        totalIncome={totalIncome}
-        setTotalIncome={setTotalIncome}
-        totalExpenses={totalExpenses}
-        setTotalExpenses={setTotalExpenses}
-      />
-    </main>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <main className='app' id={theme}>
+        <NavBar userName={userName} onToggle={toggleTheme} theme={theme} />
+        <Dashboard
+          cashFlow={cashFlow}
+          transactions={transactions}
+          setTransactions={setTransactions}
+          totalIncome={totalIncome}
+          setTotalIncome={setTotalIncome}
+          totalExpenses={totalExpenses}
+          setTotalExpenses={setTotalExpenses}
+        />
+      </main>
+    </ThemeContext.Provider>
   )
 }
 

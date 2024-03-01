@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactSwitch from "react-switch";
 import './NavBar.css'
 import UserPic from '../../assets/icons/user-icon.png'
 import BarIcon from '../../assets/icons/bar-icon.svg'
@@ -9,13 +10,7 @@ import UserIcon from '../../assets/icons/user-icon.svg'
 import ExportIcon from '../../assets/icons/export-icon.svg'
 
 
-const NavBar = ({userName}) => {
-  //Function for handling CSV Export
-  const handleExport = () => {
-    window.location.href = 'http://localhost:3000/users/export'; 
-    /* Needs to be changed when deploying */
-  };
-
+const NavBar = ({userName, onToggle, theme}) => {
   return (
     <nav className='navbar'>
       <aside className='nav-button-container'>
@@ -45,6 +40,10 @@ const NavBar = ({userName}) => {
             <p className='navbar-button-text'>Export CSV</p>
           </button>
           <div style={{width: '100%', height: '0%', border: '1px #8C89B4 solid'}}></div>
+      <div className = "switch">
+        <ReactSwitch onChange={onToggle} checked={theme === "dark"}/>
+        <label> {theme == "light" ? "Light Mode" : "Dark Mode"}</label>
+      </div>
         </section>
       </aside>
       <section className='user-icon'>
