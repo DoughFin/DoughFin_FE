@@ -12,6 +12,8 @@
 #light .app {
   background-color: #fafafa
 }
+
+
 #light .navbar {
   background-color: #fafafa
 }
@@ -93,31 +95,31 @@
   background-color: #141332
 }
 #dark .cashflow {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .dashboard-totals-container {
   background-color: #141332
 }
 #dark .transactions {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .transactions-table-container {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .table-scroll {
   background-color: #141332
 }
 #dark .budget {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .budget-header {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .budget-pie-chart {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark .budget-percentage-breakdown {
-  background-color: #141332
+  background-color: #1D1D41
 }
 #dark {
   background-color:#141332
