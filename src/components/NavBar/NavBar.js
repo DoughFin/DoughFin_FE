@@ -13,7 +13,7 @@ import ExportIcon from '../../assets/icons/export-icon.svg'
 const NavBar = ({userName, onToggle, theme}) => {
   //Function for handling CSV Export
   const handleExport = () => {
-    window.location.href = 'https://dough-fin-fe-deploy.vercel.app/users/export'; 
+    window.location.href = 'https://doughfin-be-q7yq.onrender.com/users/export'; 
   };
 
   return (
