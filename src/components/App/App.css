@@ -13,6 +13,13 @@
   background-color: #fafafa
 }
 
+#light .transactions-table-container tr:hover {
+  background-color: #8aaae551;
+}
+
+#light .navbar-button {
+  background-color: #4e54a9
+}
 
 #light .navbar {
   background-color: #fafafa
