@@ -11,6 +11,12 @@ import ExportIcon from '../../assets/icons/export-icon.svg'
 
 
 const NavBar = ({userName, onToggle, theme}) => {
+  //Function for handling CSV Export
+  const handleExport = () => {
+    window.location.href = 'http://localhost:3000/users/export'; 
+    /* Needs to be changed when deploying */
+  };
+
   return (
     <nav className='navbar'>
       <aside className='nav-button-container'>

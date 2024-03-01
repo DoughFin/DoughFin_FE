@@ -26,6 +26,12 @@ cd DoughFin_FE
  ```bash
 npm install
 ``` 
+
+4. Install the react-switch for dark mode: `npm install react-switch --save`
+ ```bash
+npm install react-switch --save
+``` 
+
 5. Fire up the app: `npm start`
 ```bash
 npm start
